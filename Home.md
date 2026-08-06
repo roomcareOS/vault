@@ -23,6 +23,7 @@ Jay's HQ — processes, skills, agents and decisions across the five businesses;
 - [[Map - Agents and Skills]] — operating profiles, pipelines, skills and the tool shelf.
 - [[Map - Decisions]] — every decision log: why things are shaped the way they are.
 - [[Map - Research]] — product evidence bases and the newsroom's verified research packs.
+- [[Map - In Progress]] — work that exists but has not landed: built on unmerged branches, invisible to anyone reading the main code, with what blocks each one.
 
 ## The plan
 
