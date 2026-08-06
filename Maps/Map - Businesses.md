@@ -20,9 +20,10 @@ Every business Jay runs, and the patterns they all share. Start at [[Home]].
 - [[MyHomework]] — homework capture, planning and AI coaching for students 13+; the coach never does the homework.
 - [[Intervooh]] — interview preparation for adults: tell it company, role and date, get a day-by-day programme. Sibling of MyHomework.
 
-## The open-source tool
+## Not a business: the tools YFarmX ships
 
-- [[Scenecast]] — free MIT-licensed command-line tool: logo + clips in, finished on-brand vertical video out, all on the user's own machine. Published under the RoomCare organisation.
+- [[Open Source Tools (YFarmX)]] — YFarmX releases small, genuinely useful open-source tools to earn stars, traffic and credibility. **They are marketing, not businesses**, and they belong to YFarmX rather than standing alone.
+- [[Scenecast]] — the first of them. Free MIT-licensed command-line tool: logo and clips in, finished on-brand vertical video out, all on the user's own machine. *Currently published under the personal `roomcareOS` account; it moves to the YFarmX organisation in the org split.*
 
 ## The local service
 

@@ -1,12 +1,14 @@
 ---
-tags: [business, scenecast]
+tags: [tool, yfarmx]
 source: [README.md, PRD.md, PROGRESS.md]
 updated: 2026-08-06
 ---
 
 # Scenecast
 
-Jay's **open-source, public project** — a free command-line tool (run by typing commands, no app window) published under the RoomCare GitHub organisation, MIT licensed, credited "built by RoomCare". Repo: `roomcareos/scenecast`.
+**Not a business — a tool [[YFarmX]] ships.** Jay's call, 6 August 2026: Scenecast began as an experiment and belongs to YFarmX as open-source marketing, not as a project in its own right. The thinking behind that, and the rules for the tools that follow it, are in [[Open Source Tools (YFarmX)]].
+
+A free command-line tool (run by typing commands, no app window), MIT licensed. Repo is currently `roomcareos/scenecast` and credited "built by RoomCare" — **both move to the YFarmX organisation in the org split, and the credit changes with it.**
 
 **The promise, which is the whole product:** *Add your logo and your clips. Get a finished, on-brand video. Everything else is automatic.*
 

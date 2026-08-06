@@ -13,7 +13,7 @@ Jay's HQ — processes, skills, agents and decisions across the five businesses;
 - [[RoomCare]] — the bedside operating system for care homes; works alongside the nurse call, never in place of it.
 - [[MyHomework]] — homework capture, planning and coaching for students 13+; the coach never does the homework.
 - [[Intervooh]] — interview prep for adults: company + role + date in, a day-by-day programme out.
-- [[Scenecast]] — the open-source command-line tool: logo and clips in, finished on-brand video out.
+*(Not a business: [[Open Source Tools (YFarmX)]] — the tools YFarmX ships to earn stars and traffic, starting with [[Scenecast]].)*
 - [[Norwich Drones]] — drone services; TikTok growth and the website, run off the Todoist board.
 
 ## Maps

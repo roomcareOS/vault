@@ -54,12 +54,25 @@ A thing that changes state goes on the board. A thing that changes how work is d
 - Every note links its business and its map. Link generously — the graph is the product.
 - Link to the repo, do not copy the repo. A copy drifts silently and then two answers exist.
 - Plain English, British spelling, jargon translated in brackets. Jay works by voice from a phone.
+- **Read his transcription charitably.** "WiFi Max", "WiFi Mix" and "WiFi Masks" always mean **YFarmX** — the speech-to-text mangles it every time. Likewise "Intervooh" often arrives as "interview", "Interview dot com" or "Intervoo". Never act on the literal mis-transcription; if a name is genuinely ambiguous, ask.
 - Never a secret value anywhere. Environment-variable names only.
 - Status snapshots go inside the business note under a dated heading, never in a separate note.
 
 ## When the vault and reality disagree
 
 The vault is wrong. Fix the note in that session and say so. A note that quietly lies is worse than no note — that is what happened when the vault was built from `main` alone and missed everything on unmerged branches, which is why [[Map - In Progress]] now exists.
+
+## Where this is wired in
+
+Pointed at from the `CLAUDE.md` of every repo, so a session picks it up whether or not Jay says so (6 August 2026):
+
+| Repo | Where | State |
+|---|---|---|
+| `roomcareOS/v1` (RoomCare) | `CLAUDE.md`, above the Todoist section | live on `main` |
+| `roomcareOS/yfarmx` | `CLAUDE.md`, above the working rules | live on `main` |
+| `roomcareOS/myhomework` | `CLAUDE.md` — created; the repo had none | live on `main` |
+| `roomcareOS/scenecast` | `CLAUDE.md`, worded for a public repo | live on `main` |
+| `roomcareOS/interviewprep` (Intervooh) | `CLAUDE.md` — created; the repo had none | on branch `claude/convex-vs-super-bass-dq1657`, **needs merging** |
 
 ## Related
 - [[Todoist Doctrine]] — the board itself: the projects, what belongs in each, the eight rules
