@@ -1,0 +1,30 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    { "query": "path:Businesses", "color": { "a": 1, "rgb": 14701138 } },
+    { "query": "path:Processes", "color": { "a": 1, "rgb": 5016565 } },
+    { "query": "path:\"Agents and Skills\"", "color": { "a": 1, "rgb": 10181046 } },
+    { "query": "path:Decisions", "color": { "a": 1, "rgb": 15105570 } },
+    { "query": "path:Research", "color": { "a": 1, "rgb": 3066993 } },
+    { "query": "path:Maps", "color": { "a": 1, "rgb": 15844367 } },
+    { "query": "path:Inbox", "color": { "a": 1, "rgb": 9807270 } }
+  ],
+  "collapse-display": true,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.2,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": true,
+  "centerStrength": 0.5,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1,
+  "close": false
+}

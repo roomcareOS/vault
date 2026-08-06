@@ -1,0 +1,11 @@
+# Obsidian's per-machine state — changes on every window move and causes
+# needless merge conflicts when the vault syncs across machines.
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
