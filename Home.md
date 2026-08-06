@@ -31,6 +31,8 @@ Jay's HQ — processes, skills, agents and decisions across the five businesses;
 
 ## How this vault works
 
+- **[[Session Doctrine]] — the standing rule: no work is finished until Todoist and this vault both say so.** Every Claude session, every repo. Read this one first if you read nothing else.
+
 - **The three-way split** (the [[Todoist Doctrine]], estate-wide): *Todoist owns STATE* (what is happening right now), *the repo docs own the RECORD* (what happened and what was shipped), *this vault owns KNOWLEDGE* (how things are done and why). If a note here starts tracking live tasks, it is in the wrong place.
 - **New captures go to Inbox** first, then get shaped with a template — [[Template - Bookmark Note]], [[Template - Process Note]] or [[Template - Decision Note]] — and linked into the right map.
 - **Next step for the Twitter bookmarks:** [[How to import X bookmarks]] — turn the last ~60 days of X bookmarks into linked notes here.
