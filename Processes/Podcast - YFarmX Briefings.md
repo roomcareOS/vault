@@ -8,18 +8,18 @@ updated: 2026-08-07
 
 **LIVE since 6 August 2026.** `PODCAST_PUBLIC = true` in `src/lib/flags.mjs` on Jay's call. The show page (`yfarmx.com/podcast/`) and the RSS feed (`/podcast/feed.xml`) are public, indexed, in the sitemap, and — since 7 August — linked from the header's **More** menu and the footer. Four episodes are on the feed. **Not yet submitted to any directory**: Apple, Spotify and the rest wait on the R2 audio cutover and external feed validation ([[Media Storage and the R2 Rule (YFarmX)]], `docs/podcast.md` §7).
 
-## The format: one narrator, not a cast
+## The format: a scripted conversation, ENGRAVED
 
-**An episode is the article read aloud by a single synthetic voice.** Jay set this on 6 August after pulling the three five-character conversation episodes cut the day before ("their audio was shite") — those articles carry `podcast: false` and their files are untouched, so nothing was destroyed.
+**An episode is two or three of five house characters taking one article apart** — Alice (anchor), Bob (explainer), Sally (sceptic), Jim (context), Melissa (markets). Jay engraved it on 7 August 2026: *"i really like the podcasts, keep the podcast voice playbook as is engraved."* The voices, models and assembly chain live in `scripts/make-podcast.py` and `docs/podcast-cast.md` (the cast moved to Gemini TTS voices on 7 Aug — Zephyr, Iapetus, Leda, Charon, Laomedeia, all British). **No session changes a voice without Jay saying so himself; a broken provider is reported and the run stops.**
 
-The five-voice cast (Alice, Bob, Sally, Jim, Melissa — Jay's blind-audition picks of 5 August) still exists in `scripts/make-podcast.py`, and restoring the `CAST` list in `src/lib/podcast.ts` brings the conversation format back, page copy and all. **Do not change or revive a voice without Jay** — a listener knows a cast.
+The format's history matters because it caused a documentation trap. The first cut of the cast was pulled on 6 August ("their audio was shite") and the show relaunched for one day as a single-narrator read — the 6 Aug MetaMask episode on the feed is that format. The recast shipped the next morning, but `src/lib/podcast.ts` kept its 6 Aug comments, and the 7 Aug page redesign briefly shipped single-narrator copy written from them before the rebase surfaced the engrave commit. **When code comments and same-day docs disagree, check `git log` on both before writing copy from either.** `CAST` in `podcast.ts` is now populated (the show page renders the cast strip from it) and `AI_DISCLOSURE` describes characters performing a script.
 
-The disclosure line ships on the show and every episode: the narrator is not a real person; the reporting is written and edited by the desk. Matches `/how-we-use-ai/`.
+The disclosure line ships on the show and every episode: the voices are not real people; the reporting is written and edited by the desk. Matches `/how-we-use-ai/`.
 
 ## How an episode happens
 
 1. The desk publishes an article — the episode never leads the reporting.
-2. Narration is produced deliberately per article (`podcastAudio:` in front matter). An article with no episode audio simply is not an episode; `podcast: false` holds a finished one out of the feed.
+2. `python3 scripts/make-podcast.py <slug> --wire` writes the script (the article is its only source; hedges survive; `--script-only` is the cheap quality gate), renders each character's lines, volume-matches and assembles one MP3, and sets `podcastAudio:` in the front matter. An article with no episode audio simply is not an episode; `podcast: false` holds a finished one out of the feed.
 3. `scripts/audio-manifest.mjs` measures the MP3 (exact bytes and seconds) into `src/data/audio-manifest.json`. **An unmeasured file is left out of the feed rather than published with a wrong length** — a wrong length makes players' scrub bars lie.
 4. The feed carries it everywhere; the hourly rebuild publishes future-dated episodes on its own.
 

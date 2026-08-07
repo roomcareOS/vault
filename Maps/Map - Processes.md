@@ -20,7 +20,7 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 - [[Social Platforms (YFarmX)]] — the wider map: dormant broadcast mirrors, feed syndication, and the standing decision never to automate Reddit.
 - [[Video Production (YFarmX)]] — the Remotion cut pipeline: output spec and safe area, which renderer is which, the standing imagery and copy rules, the light theme, and the render traps not to "fix".
 - [[Audio and Voice Production (YFarmX)]] — the house voice and its fixed settings, `make-audio.py`, the daily quota, the fallback, and the rule that the voice never changes without Jay.
-- [[Podcast - YFarmX Briefings]] — live since 6 Aug: one synthetic narrator reads the article, measured into a self-hosted feed; the show page is progressive enhancement over native audio. Directory submissions still pending, in a fixed order.
+- [[Podcast - YFarmX Briefings]] — live since 6 Aug: the engraved five-character cast takes one article apart per episode, measured into a self-hosted feed; the show page is progressive enhancement over native audio. Directory submissions still pending, in a fixed order.
 - [[Image Style and Prompt Libraries (YFarmX)]] — the cyber-dossier house look and the index of self-contained prompt packs.
 - [[Staging and Backups (YFarmX)]] — staging branch Jay reviews before anything reaches live, plus daily backups.
 - [[Ops Runbooks (YFarmX)]] — SEO go-live, email anti-spoofing DNS, page-freshness registry: the account-level clicks only Jay can do.
