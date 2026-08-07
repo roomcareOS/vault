@@ -1,6 +1,6 @@
 ---
 tags: [map, cross]
-updated: 2026-08-06
+updated: 2026-08-07
 ---
 
 # Map - In Progress
@@ -15,8 +15,6 @@ This section exists because that work kept going missing. The vault was first bu
 
 - [[TikTok 60-Video Plan (YFarmX)]] — 30 days, two posts a day, six series, a full brief per video. Blocked on Jay approving the plan, approving the voice, and the empty Google AI Studio credits.
   *Branch: `claude/wifi-max-tiktok-plan-wzkahd`*
-- [[Podcast - YFarmX Briefings]] — the daily two-to-three-minute show with a five-voice cast. Built and clean; a feature flag keeps it invisible. Blocked on R2 credentials, the media domain binding, cover approval and one voice decision.
-  *Branch: `claude/podcast-setup-plan-0byrij`*
 - [[Media Storage and the R2 Rule (YFarmX)]] — **read this before the Seedance video week (7–13 Aug)**: media never goes into git, one private bucket per property, index as you go.
   *Branch: `claude/workflow-architecture-plan-ptk232`*
 - [[OpenRouter Budget and Model Lanes (YFarmX)]] — what the £1,400/month is meant to buy, the per-key lane caps, and why only auto-top-up-off is a real spending guard. Parts written against 28 July state and now stale.
