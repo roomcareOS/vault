@@ -1,12 +1,12 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/space/RECON.md, yfarmx/docs/space/MODELS.md, yfarmx/docs/space/BUDGET.md, yfarmx/docs/space/IMAGE-PROMPTS.md, yfarmx/docs/space/IMAGE-PROMPTS-26.md, yfarmx/docs/space/HUB-COMPLETION.md, yfarmx/docs/space/OUT_OF_SCOPE.md
-updated: 2026-08-06
+updated: 2026-08-07
 ---
 
 # Space Hub Build (YFarmX)
 
-The Space section of [[YFarmX]]: a hub, sixteen topic desks (News, Launches, Missions, Satellites, Orbit, Moon, Mars, Science, Robotics, Business, Security, Policy, Defence, Analysis, Opinion, Data) plus an About page, all under `/space/`. Held pre-launch behind one flag (`SPACE_PUBLIC = false` in `src/lib/flags.mjs`), which noindexes all 18 pages and strips them from sitemap, RSS, navigation and search. Flipping it is Jay's call alone — see [[Decisions - Space Hub (YFarmX)]].
+The Space section of [[YFarmX]]: a hub, sixteen topic desks (News, Launches, Missions, Satellites, Orbit, Moon, Mars, Science, Robotics, Business, Security, Policy, Defence, Analysis, Opinion, Data) plus an About page, all under `/space/`. **LAUNCHED 7 August 2026** — Jay flipped `SPACE_PUBLIC` by voice instruction that evening (it was his call alone, and remained so; see [[Decisions - Space Hub (YFarmX)]]). The world now carries its own display face (Chakra Petch, loaded only on space pages), decode-on-view headings, a two-world masthead switcher, per-desk banner art on all sixteen desks, and a sister-title band on the main homepage.
 
 ## The working method (this is the reusable part)
 
@@ -55,6 +55,6 @@ And an ordering rule: **write the article before the hero prompt** — art that 
 - [ ] Jay's review: drafts stay `draft: true` until Jay reads and edits them (the only stop in the loop, same as the [[Article Pipeline (YFarmX)]])
 - [ ] CLS (layout shift) 0.0588 against a target of zero — untraced; font swap is the hypothesis, not the finding
 
-The honest summary from the completion doc: the machinery works; what the section lacks is journalism, and the next unit of work is articles, not features. (The [[YFarmX]] status snapshot records the Space desk's first live news article on 5 August.)
+The honest summary from the completion doc: the machinery works; what the section lacks is journalism, and the next unit of work is articles, not features. (The [[YFarmX]] status snapshot records the Space desk's first live news article on 5 August.) **Post-launch note, 7 Aug:** the shared-banner art blocker is resolved (every desk owns its banner); empty desks still render their honest empty states, and articles remain the real work.
 
 [[Map - Processes]] · [[Decisions - Space Hub (YFarmX)]] · [[Hermes Newsroom Pipeline (YFarmX)]] · [[Image Style and Prompt Libraries (YFarmX)]] · [[Robotics Launch Checklist (YFarmX)]]

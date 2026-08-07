@@ -1,7 +1,7 @@
 ---
 tags: [decision, yfarmx]
 source: yfarmx/docs/space/DECISIONS.md, yfarmx/docs/space/OUT_OF_SCOPE.md, yfarmx/docs/space/BUDGET.md, yfarmx/docs/space/RECON.md
-updated: 2026-08-06
+updated: 2026-08-07
 ---
 
 # Decisions - Space Hub (YFarmX)
@@ -11,7 +11,7 @@ Non-obvious choices from the [[YFarmX]] Space section build, each with its reaso
 ## Scope and control
 
 - **The scope lock was translated, not followed literally** (29 Jul). Word for word it forbade every file the spec asked for (no `space/` directory exists); the translation — "the Space set only, nothing shared with the main site" — was proposed to Jay rather than assumed.
-- **`SPACE_PUBLIC` stays false; only Jay flips it.** One line launches the section into sitemap, RSS, nav and search. The out-of-scope register records the exact diff, unapplied.
+- **`SPACE_PUBLIC` was Jay's alone to flip, and he flipped it on 7 August 2026** by voice instruction, superseding his own 6 August hold. The out-of-scope register's entry is closed with a dated note; the flag carries a dated comment in `flags.mjs`.
 - **Space documents live at `docs/space/`,** following the repo's existing convention, since the spec's `space/_docs/` location cannot exist.
 - **An append-only out-of-scope register** records every forbidden change with the smallest diff that would have satisfied it — entries are appended, never rewritten, so the record of what was wanted stays intact.
 - **The shared `Turntable.astro` component is never edited** — it also serves the Robotics vertical. The new models were rendered to its existing naming convention so they drop in with zero risk; any future GLB viewer gets a Space-only component instead.

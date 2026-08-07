@@ -1,7 +1,7 @@
 ---
 tags: [business, yfarmx]
 source: yfarmx/CLAUDE.md, yfarmx/README.md, yfarmx/docs/master-plan.md, yfarmx/docs/status.md, yfarmx/docs/audit.md, yfarmx/docs/pivot-salvage.md
-updated: 2026-08-06
+updated: 2026-08-07
 ---
 
 # YFarmX
@@ -34,6 +34,11 @@ Accuracy is the product. Primary and official sources only (regulators, filings,
 - Repo: `roomcareOS/yfarmx` (private, under the [[RoomCare]] GitHub organisation; the two businesses stay separated at repository level)
 - Hosting: Cloudflare Pages, free tier, domain registration stays at GoDaddy, DNS at Cloudflare
 - Key dates on the plan: EU AI transparency rules from 2 Aug 2026 (documented human review keeps the site inside the editorial exemption); cheap scanning models retire ~Oct 2026 (config swap)
+
+## Status snapshot (7 August 2026, from docs/status.md)
+
+- **YFarmX Space is LAUNCHED** (evening of 7 Aug, Jay's voice instruction, superseding his 6 Aug hold): `SPACE_PUBLIC=true`, the hub and sixteen desks in sitemap/feeds/nav/search, a sister-title band on the homepage, the two worlds one tap apart via the masthead switcher. Same session: the hardware-bay drag fixed three ways, both space data files re-verified against primary sources (four mission corrections applied), six shared desk banners replaced with their own art, Chakra Petch as the Space display face. See [[Space Hub Build (YFarmX)]].
+- **The podcast page is the studio** (7 Aug): /podcast redesigned with custom players and generated art, linked from the More menu and footer. The cast conversation format is ENGRAVED (Jay). Directory submissions still wait on the R2 cutover. See [[Podcast - YFarmX Briefings]].
 
 ## Status snapshot (5 August 2026, from docs/status.md)
 
