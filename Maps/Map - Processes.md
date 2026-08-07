@@ -1,6 +1,6 @@
 ---
 tags: [map, cross]
-updated: 2026-08-06
+updated: 2026-08-07
 ---
 
 # Map - Processes
@@ -11,6 +11,7 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 
 - [[Supabase Stack Pattern]] — the one backend recipe ([[RoomCare]], [[MyHomework]], [[Intervooh]]): London region, row-level security as the security model, edge functions for secrets.
 - [[RLS and Schema Change Process]] — the two verbatim rules for touching any database; policies and a failing-read test ship with every migration.
+- [[Working Across Devices (Claude Sessions)]] — cloud sessions by default, Remote Control when working locally; why chats never sync between devices and why that loses nothing.
 
 ## YFarmX
 
