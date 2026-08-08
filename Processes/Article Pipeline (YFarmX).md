@@ -35,7 +35,7 @@ How an article actually gets onto [[YFarmX]] today, distilled from the newsroom 
 - **Never change a published media file's bytes under an unchanged URL.** `/media/*` is cached for hours; fixing an image, video or audio file means a new filename (`-v2`) and updating the article.
 - **Never promise a future update in copy** ("we will update this piece…"). What is unknown is stated as fact and left there.
 - **In brief box is brief:** summary two sentences, 45 words max; four key points max. Enforced at build time for articles from 28 July 2026.
-- **Glossary links: right sense or no link.** Words used in their ordinary English sense must not auto-link to a desk definition ("street address" vs crypto address); collisions go in the linker's stop list with the reason written beside them.
+- **Glossary links: right sense or no link.** Words used in their ordinary English sense must not auto-link to a desk definition ("street address" vs crypto address); collisions go in the linker's stop list with the reason written beside them. **Since 8 Aug 2026 the double check is enforced by the build:** a link that crosses desks (a crypto term on a space page) must be in the linker's reviewed-pairs file or the build fails and prints the sentence; a session reads it and either records the pairing (`GLOSSARY_ACCEPT_CROSSDESK=1`) or stops/scopes the term. Never set the accept flag without reading the sentences — the flag IS the review. Playbook §4 and yfarmx decision 51 carry the detail; the trigger was the DEX "slippage" tooltip landing on schedule slippage.
 - Every article links the first mention of any subject that has a reference page — those pages are the SEO backbone; articles are how they earn authority.
 
 ## Freshness
