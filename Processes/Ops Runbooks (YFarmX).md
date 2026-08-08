@@ -35,6 +35,37 @@ Standing warnings: every mail/verification record is **DNS-only (grey cloud), ne
 
 **Time-sensitive = every editorial page that describes the present** — almost the whole site, excluding news articles (dated dispatches, corrected but never "updated to today") and ~10 static utility/legal pages. Three review tiers: **fast** (daily: live markets, "current flagship" model pages, incident logs, events), **medium** (weekly: landscapes, tool round-ups, hub state-of-play strips), **slow** (monthly spot-check: pure-concept explainers, glossary). Each page carries a visible `updated:` stamp; refresh the underlying JSON data files and the pages follow. The registry is the single source of truth for "refresh the time-sensitive pages" — a weekly pass runs against it (see [[Article Pipeline (YFarmX)]] on honest freshness).
 
+## 4. Live systems: ask them, do not read them (8 Aug 2026)
+
+Three weeks of form submissions were silently lost — plausibly reader mail,
+corrections and news tips as well as waitlist signups — because a check on
+18 July confirmed the contact form *rendered* (`data-armed="yes"`) and called
+it live. Rendering is not delivering. The cause was the Cloudflare Pages
+`GITHUB_TOKEN` expiring: it returns 401, which also stops `/api/publish`, so
+the Publishing Desk and Hermes could not commit an article and nothing said
+so.
+
+**The rule: a write path must be able to answer "could you do your job right
+now", and something must ask it.** `/api/subscribe` reports whether it is
+armed and takes `dry:true` to exercise everything but the write, reporting
+what the upstream actually answers. Build the same self-report into anything
+that writes, and prefer a live probe over reading the code.
+
+**Cloudflare platform traps, each of which hid a fault rather than causing
+one:**
+
+- **A Cache API key must be same-origin.** Cloudflare refuses a key on any
+  other hostname and *throws*. An `*.internal` key inside `waitUntil` throws
+  invisibly, which is how the price endpoints' last-known-good fallback was
+  stated as a guarantee for weeks while never storing anything.
+- **Never return 502 from a Function.** The edge treats it as a gateway
+  failure and replaces the body with its own error page, so the reason never
+  reaches the caller. Use 500 for application errors.
+- **Miniflare accepts what production rejects.** `wrangler pages dev` cannot
+  prove a Function works; only the deployed URL can.
+- **Changing a Pages environment variable needs a redeploy** before Functions
+  see it.
+
 ## Links
 
 [[YFarmX]] · [[Map - Processes]] · [[Article Pipeline (YFarmX)]] · [[Staging and Backups (YFarmX)]] · [[Decisions - YFarmX]]
