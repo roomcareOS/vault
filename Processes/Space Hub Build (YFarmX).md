@@ -61,6 +61,40 @@ The honest summary from the completion doc: the machinery works; what the sectio
 
 Eleven of the twelve missions on the Missions desk now carry real imagery of the actual craft, restyled onto the house starfield (Chang'e-7 ships imageless — no cleanly licensed source exists; Haven-1 is unmodified because Vast's press terms forbid alteration). The class-archetype rule above still governs the **3D models**; photographs of the real, named craft are a different category and are captioned and credited as such. The sourcing, licensing and restyle workflow is recorded in [[Image Style and Prompt Libraries (YFarmX)]] — read it before adding any mission or hardware image.
 
+## The market tape (8 Aug 2026) — the house pattern for live data on a page
+
+Jay asked for the top space stocks with live prices at the top of `/space`,
+"always working, whatever the traffic or the rate limits". The shape that
+satisfies it is the estate's standing pattern for ANY live third-party number,
+already proven by `/api/prices` for crypto, now applied to equities as
+`/api/markets` (yfarmx decision 49 has the full reasoning):
+
+1. **Visitors never talk to the provider.** One Pages Function does, and
+   `cf.cacheTtl` dedupes that to roughly one upstream refresh a minute per
+   edge no matter how many readers are on the page. Collect once,
+   redistribute.
+2. **Three layers, so nothing ever blanks:** a build-time snapshot
+   server-rendered from a committed data file (JS off or endpoint down still
+   shows honest figures with their provenance stamp), a live upgrade in
+   place once a minute, and a last-known-good copy at the edge for provider
+   wobbles.
+3. **All live or all snapshot, never a mix.** The endpoint refuses partial
+   sets, and the committed file refuses partial refreshes, for the same
+   reason: a strip mixing fresh and stale rows lies about its own timestamp.
+4. **One symbol list.** The Function imports it from the same committed file
+   the page bakes from, so the three layers cannot disagree about coverage.
+5. **The LIVE indicator is earned, not asserted:** grey until live figures
+   are actually on screen, and the stamp names which state is showing.
+
+**Two Yahoo chart-API traps, guarded in code but worth knowing on sight
+anywhere Yahoo data appears:** `meta.chartPreviousClose` is the close before
+the *requested range* (on a 1mo call that is a month ago — a day change
+computed against it is silently a month change); and the quote field
+`meta.regularMarketPrice` can lag Yahoo's own chart by days while carrying a
+fresh session timestamp (QBTS, 8 Aug 2026: quote $16.21, chart series $20.76,
+Nasdaq $20.76). Price from the daily close series; trust the quote field only
+while it agrees with the series.
+
 ## Traps the 7 August adversarial review caught (worth remembering)
 
 Twenty-four confirmed findings, all fixed before the production push. Three generalise beyond this build:
