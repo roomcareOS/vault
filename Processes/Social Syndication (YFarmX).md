@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
-source: yfarmx/docs/social-linkedin.md, yfarmx/docs/social-tiktok.md, yfarmx/docs/playbook.md, yfarmx/docs/social.md
-updated: 2026-08-06
+source: yfarmx/docs/social-linkedin.md, yfarmx/docs/social-tiktok.md, yfarmx/docs/playbook.md, yfarmx/docs/social.md; Jay's hashtag rule 8 Aug 2026
+updated: 2026-08-08
 ---
 
 # Social Syndication (YFarmX)
@@ -25,6 +25,8 @@ The moment an article is live and verified, it posts. **X and LinkedIn always fi
 **X:** body ≤255 characters (a URL always counts as 23); hook, blank line, substance; the article link goes in the entry's `url` field and the poster puts it on its own line. **Never a bare domain in the body text** — X builds the preview card from the first domain it sees (a post once shipped carrying Crypto.com's card instead of ours). Name the parent company or write around it.
 
 **LinkedIn:** one opening line that carries the story, then three to five bullets, one fact each, at most one signpost emoji per bullet, one short close with the link. Every sentence carries a number, a name, a quote, a date, or a conclusion drawn from one. Aim for ~500 characters, not 2,000.
+
+**Every LinkedIn post ends with three to five hashtags, on their own line, last (Jay, 8 August 2026).** His words: *"linkedin posts must have 3-5 hashtags at end"*. LinkedIn's feed still routes on hashtags where X's no longer does, so a post without them is under-delivered and one stuffed with them reads as spam. Tag the subject and the desk, not the mood: `#Bitcoin #LightningNetwork #SelfHosted #InfoSec`, never `#Innovation`. **Enforced** in `scripts/buffer-post.mjs`, which holds any LinkedIn entry outside 3 to 5 as `pending` with the reason in `error` — fix the copy, re-run, it sends. It is a gate rather than a note because the rule lived only in chat for one afternoon and two posts went out without any.
 
 **TikTok:** no clickable caption links exist, so the caption ends with the address in words ("Full story at yfarmx.com, link in bio") — the one sanctioned exception to the bare-domain rule. Only the first line shows before "more", so it must work as the whole post. Three to eight accurate hashtags beat twenty.
 
