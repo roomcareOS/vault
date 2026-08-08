@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
-source: yfarmx docs/podcast.md, flags.mjs; Jay's launch call 6 Aug and page-redesign instruction 7 Aug 2026
-updated: 2026-08-07
+source: yfarmx docs/podcast.md, docs/podcast-cast.md, flags.mjs; Jay's launch call 6 Aug, page-redesign instruction 7 Aug, casting rule 8 Aug 2026
+updated: 2026-08-08
 ---
 
 # Podcast - YFarmX Briefings
@@ -13,6 +13,16 @@ updated: 2026-08-07
 **An episode is two or three of five house characters taking one article apart** — Alice (anchor), Bob (explainer), Sally (sceptic), Jim (context), Melissa (markets). Jay engraved it on 7 August 2026: *"i really like the podcasts, keep the podcast voice playbook as is engraved."* The voices, models and assembly chain live in `scripts/make-podcast.py` and `docs/podcast-cast.md` (the cast moved to Gemini TTS voices on 7 Aug — Zephyr, Iapetus, Leda, Charon, Laomedeia, all British). **No session changes a voice without Jay saying so himself; a broken provider is reported and the run stops.**
 
 The format's history matters because it caused a documentation trap. The first cut of the cast was pulled on 6 August ("their audio was shite") and the show relaunched for one day as a single-narrator read — the 6 Aug MetaMask episode on the feed is that format. The recast shipped the next morning, but `src/lib/podcast.ts` kept its 6 Aug comments, and the 7 Aug page redesign briefly shipped single-narrator copy written from them before the rebase surfaced the engrave commit. **When code comments and same-day docs disagree, check `git log` on both before writing copy from either.** `CAST` in `podcast.ts` is now populated (the show page renders the cast strip from it) and `AI_DISCLOSURE` describes characters performing a script.
+
+### One male and one female voice, always (Jay, 8 August 2026)
+
+Every episode carries at least one male and at least one female character; a two-hander is exactly one of each. Jay's words: *"have two voices, a male, British, and a female, British who are kinda bouncing off each other. because when you do female on female, you can't really tell it's a different voice sometimes."*
+
+This is a legibility rule, not a personality one. Three of the five characters are women, so an unconstrained pick lands single-sex often, and on a phone speaker at 2x two female voices blur into one — the listener stops hearing a conversation. Pitch contrast is what keeps the turns apart.
+
+Workable pairs: **Alice+Bob, Alice+Jim, Melissa+Bob, Melissa+Jim, Sally+Jim, Sally+Bob**. Barred: Alice/Melissa/Sally with each other, and Bob with Jim.
+
+Enforced twice in `scripts/make-podcast.py` — the casting prompt states it as a hard rule, and `force_mixed()` swaps a character out if the reply ignores it. A `--cast=` named by hand is Jay's own call and is warned about, not overridden. Full reasoning in `docs/podcast-cast.md`.
 
 The disclosure line ships on the show and every episode: the voices are not real people; the reporting is written and edited by the desk. Matches `/how-we-use-ai/`.
 
