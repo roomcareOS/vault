@@ -73,6 +73,12 @@ The mission ledger stands at **19 records** and every desk that lists missions c
 
 **Opinion now runs**, superseding the stays-empty rule by Jay's direct instruction (8 Aug). It runs under the founder's named byline, never the house byline, and each piece argues from reporting already verified on the desk. **Defence** is a by-country capability board where every line carries a confidence label: `verified`, `announced`, `assessed` (someone else's estimate, attributed to them) or `speculation`/`disputed`. The labels are the honesty mechanism that lets the desk carry contested claims at all: Russia's orbital nuclear weapon appears with both the US assessment and Putin's denial, and China's ISR total is marked as a US figure rather than a Chinese one.
 
+## Deep links: every record has an address (8 Aug 2026, late)
+
+The hub and the desks share one anchor scheme, and it is load-bearing. `spaceAnchor(name)` in `src/lib/space-sections.ts` turns a mission or launch name into a slug; the missions desk gives every record `id="m-<anchor>"`, the launches desk gives every window `id="l-<anchor>"`, and everything that mentions one — hub mission cards, the launch accordion's cross-links, the desk log lines — links to that id. The `:target` card gets the blue ring and a small script opens its More panel on arrival, so a click lands on the open record. Two consequences a future session must know: **renaming a mission in the data changes its anchor** and silently breaks every inbound link until the next build regenerates them together (they all derive from the same helper, so a rename self-heals on deploy — but external links to the old hash die); and any new record gets its address for free — never hand-write an id.
+
+The hub's launch board is a native exclusive accordion — five `<details name="launchboard">`, no JS, opening one closes the last. House rule from it: **when a board's rows can expand, exactly one is open and it is visibly the raised one** (red accent on Launches). On phones the summary is two rows (pill and window above, name below) because a nowrap window column starves the name — checked at 375 px before shipping.
+
 ## The market tape (8 Aug 2026) — the house pattern for live data on a page
 
 Jay asked for the top space stocks with live prices at the top of `/space`,
