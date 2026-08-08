@@ -22,7 +22,7 @@ The build ran as a disciplined agent project, and the shape is worth copying for
 - **No invented data, anywhere** — the About page promises it. Every 3D model is a *class archetype* ("communications satellite"), never captioned with a mission name; every manifest entry carries provenance `illustration`.
 - The launch countdown renders only for confirmed windows (a date-only window gets no clock).
 - Empty desks render an honest empty state, not fake content.
-- **Opinion stays empty until Jay writes it** — signed argument; the house byline is not a person with a view. News needs no article of its own; it renders the whole Space wire.
+- **Opinion runs under a named byline, never the house byline** — signed argument needs a person behind it. (Until 8 Aug 2026 the rule was that Opinion stayed empty until Jay wrote it; he lifted that himself and the desk now runs pieces under the founder's byline.) News needs no article of its own; it renders the whole Space wire.
 - Data files carry per-record `sources` and `lastVerified`; "NEVER add a launch without primary sources" is written into the file itself.
 
 ## The 3D model library
@@ -63,7 +63,7 @@ Eleven of the twelve missions on the Missions desk now carry real imagery of the
 
 ## The desks grew real boards (8 Aug 2026, evening)
 
-The mission ledger stands at **19 records** and every desk that lists missions carries at least three (Jay's floor). Mission cards are compact by rule — image, name, tags, a one-or-two-sentence `brief` — with the full record behind a native More expander. Two desks stopped being empty: **Analysis** is a dated analyst dashboard (`space-analysis.json`: launch cadence on one stated methodology, the market board with a standing not-investment-advice line, 90-day milestones and deals, orbit counts) and **Business** is the company boards (`space-business.json`: startup watch with company-stated claims labelled, plus the established layer). Both carry a **weekly refresh duty registered in `docs/time-sensitive.md`** — the registry, not this note, owns that cadence. New honest phase label: `data-processing` (Gaia — spacecraft retired, archive live). Opinion stays empty until Jay writes it; that rule outlived another session.
+The mission ledger stands at **19 records** and every desk that lists missions carries at least three (Jay's floor). Mission cards are compact by rule — image, name, tags, a one-or-two-sentence `brief` — with the full record behind a native More expander. Two desks stopped being empty: **Analysis** is a dated analyst dashboard (`space-analysis.json`: launch cadence on one stated methodology, the market board with a standing not-investment-advice line, 90-day milestones and deals, orbit counts) and **Business** is the company boards (`space-business.json`: startup watch with company-stated claims labelled, plus the established layer). Both carry a **weekly refresh duty registered in `docs/time-sensitive.md`** — the registry, not this note, owns that cadence. New honest phase label: `data-processing` (Gaia — spacecraft retired, archive live).
 
 ## Two rules learned the hard way (8 Aug 2026, evening)
 
