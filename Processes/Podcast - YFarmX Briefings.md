@@ -1,6 +1,6 @@
 ---
 tags: [process, yfarmx]
-source: yfarmx docs/podcast.md, docs/podcast-cast.md, flags.mjs; Jay's launch call 6 Aug, page-redesign instruction 7 Aug, casting rule 8 Aug 2026
+source: yfarmx docs/podcast.md, docs/podcast-cast.md, flags.mjs; Jay's launch call 6 Aug, page-redesign instruction 7 Aug, casting and canon rules 8 Aug 2026
 updated: 2026-08-08
 ---
 
@@ -11,6 +11,8 @@ updated: 2026-08-08
 ## The format: a scripted conversation, ENGRAVED
 
 **An episode is two or three of five house characters taking one article apart** — Alice (anchor), Bob (explainer), Sally (sceptic), Jim (context), Melissa (markets). Jay engraved it on 7 August 2026: *"i really like the podcasts, keep the podcast voice playbook as is engraved."* The voices, models and assembly chain live in `scripts/make-podcast.py` and `docs/podcast-cast.md` (the cast moved to Gemini TTS voices on 7 Aug — Zephyr, Iapetus, Leda, Charon, Laomedeia, all British). **No session changes a voice without Jay saying so himself; a broken provider is reported and the run stops.**
+
+**The character canon is explicit and binding (Jay, 8 August 2026).** `docs/podcast-cast.md` carries one card per character: fixed voice, personality, on-air habits and their cartoon portrait (the show page's circle avatars: Alice the professional anchor, Bob the boy genius, Sally the fox, Jim the retro robot, Melissa the cow). Every article episode follows the canon without exception — cast from the five only, fixed voices, lines that belong to their speaker — so listeners build rapport with a consistent cast.
 
 The format's history matters because it caused a documentation trap. The first cut of the cast was pulled on 6 August ("their audio was shite") and the show relaunched for one day as a single-narrator read — the 6 Aug MetaMask episode on the feed is that format. The recast shipped the next morning, but `src/lib/podcast.ts` kept its 6 Aug comments, and the 7 Aug page redesign briefly shipped single-narrator copy written from them before the rebase surfaced the engrave commit. **When code comments and same-day docs disagree, check `git log` on both before writing copy from either.** `CAST` in `podcast.ts` is now populated (the show page renders the cast strip from it) and `AI_DISCLOSURE` describes characters performing a script.
 
