@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/space/RECON.md, yfarmx/docs/space/MODELS.md, yfarmx/docs/space/BUDGET.md, yfarmx/docs/space/IMAGE-PROMPTS.md, yfarmx/docs/space/IMAGE-PROMPTS-26.md, yfarmx/docs/space/HUB-COMPLETION.md, yfarmx/docs/space/OUT_OF_SCOPE.md
-updated: 2026-08-07
+updated: 2026-08-08
 ---
 
 # Space Hub Build (YFarmX)
@@ -56,6 +56,10 @@ And an ordering rule: **write the article before the hero prompt** — art that 
 - [ ] CLS (layout shift) 0.0588 against a target of zero — untraced; font swap is the hypothesis, not the finding
 
 The honest summary from the completion doc: the machinery works; what the section lacks is journalism, and the next unit of work is articles, not features. (The [[YFarmX]] status snapshot records the Space desk's first live news article on 5 August.) **Post-launch note, 7 Aug:** the shared-banner art blocker is resolved (every desk owns its banner); empty desks still render their honest empty states, and articles remain the real work.
+
+## Mission imagery (8 Aug 2026)
+
+Eleven of the twelve missions on the Missions desk now carry real imagery of the actual craft, restyled onto the house starfield (Chang'e-7 ships imageless — no cleanly licensed source exists; Haven-1 is unmodified because Vast's press terms forbid alteration). The class-archetype rule above still governs the **3D models**; photographs of the real, named craft are a different category and are captioned and credited as such. The sourcing, licensing and restyle workflow is recorded in [[Image Style and Prompt Libraries (YFarmX)]] — read it before adding any mission or hardware image.
 
 ## Traps the 7 August adversarial review caught (worth remembering)
 

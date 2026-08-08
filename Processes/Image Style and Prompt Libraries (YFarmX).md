@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/image-style.md, yfarmx/docs/brand-marketing-prompts.md, yfarmx/docs/playbook.md
-updated: 2026-08-06
+updated: 2026-08-08
 ---
 
 # Image Style and Prompt Libraries (YFarmX)
@@ -23,6 +23,22 @@ A **dense, layered magazine-collage in a cyber-dossier style** — a high-end in
 - **Never ship a placeholder or stand-in hero** — write the prompt, put it in front of Jay, wait for the real art.
 - **Patch wrong text in a generated image, do not flag it** (`scripts/patch_image.py` repaints text on its tilted surface); regenerate only if the whole composition is wrong.
 - Model: always Nano Banana Pro (`gemini-3-pro-image`) where words or figures appear — the cheaper model garbles text.
+
+## Restyling real imagery — when accuracy demands the actual object (added 8 Aug 2026)
+
+For real hardware (spacecraft, rovers, stations — the Space missions desk was the first run), do **not** generate a lookalike: research the real photograph, verify its licence, then restyle it image-to-image so the object stays untouched and only the background becomes the house dark starfield. Tooling: `scripts/make-image.mjs --input <source> --model google/gemini-2.5-flash-image` (Nano Banana 2, Jay's instruction for restyles — these images carry no text, so the Pro-only-where-words-appear rule is not in play).
+
+**Licence chain of title, checked per image — non-negotiable on a commercial site:**
+
+- **NASA/JPL** — public domain; credit anyway (`Image: NASA/JPL-Caltech, restyled`).
+- **esa.int downloads are barred** — ESA's "Standard Licence" prohibits commercial use. Use Wikimedia copies under CC BY-SA, or ESA images separately released CC BY-SA 3.0 IGO (those allow commercial use with attribution).
+- **CC BY-NC is unusable, full stop** — we are a commercial site.
+- **Press-kit terms can forbid modification** (Vast/Haven-1 does, beyond formatting): use the image unmodified, credit verbatim as the terms require (`Images courtesy of Vast`), no restyle.
+- **No cleanly licensed source → ship without an image** (the Chang'e-7 precedent). Never pass off a generation as the real craft.
+
+**Model quirk:** Nano Banana 2 ignores the aspect-ratio line on image-to-image (7 of 10 outputs kept the source aspect). Do not re-roll — fix deterministically with sharp: letterbox the output onto a blurred, darkened copy of itself at the target frame (1200×675 for the mission cards).
+
+The credit string ships with the image (for the missions desk it lives in `space-missions.json` as `imageCredit` and renders on the card next to `last verified`). Restyled images say `restyled` in the credit; unmodified ones do not.
 
 ## The brand look (marketing, app store, banners — NOT article heroes)
 
