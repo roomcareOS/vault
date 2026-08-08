@@ -59,7 +59,11 @@ The honest summary from the completion doc: the machinery works; what the sectio
 
 ## Mission imagery (8 Aug 2026)
 
-Eleven of the twelve missions on the Missions desk now carry real imagery of the actual craft, restyled onto the house starfield (Chang'e-7 ships imageless — no cleanly licensed source exists; Haven-1 is unmodified because Vast's press terms forbid alteration). The class-archetype rule above still governs the **3D models**; photographs of the real, named craft are a different category and are captioned and credited as such. The sourcing, licensing and restyle workflow is recorded in [[Image Style and Prompt Libraries (YFarmX)]] — read it before adding any mission or hardware image.
+Eleven of the twelve missions on the Missions desk now carry real imagery of the actual craft, restyled onto the house starfield (Chang'e-7 ships imageless — no cleanly licensed source exists; Haven-1 is unmodified because Vast's press terms forbid alteration). The class-archetype rule above still governs the **3D models**; photographs of the real, named craft are a different category and are captioned and credited as such. The sourcing, licensing and restyle workflow is recorded in [[Image Style and Prompt Libraries (YFarmX)]] — read it before adding any mission or hardware image. One later variant (same day): when the image IS the phenomenon rather than an object — NOIRLab's Starlink trail photograph — it ships unmodified (crop only), because a restyle would erase what it evidences.
+
+## The desks grew real boards (8 Aug 2026, evening)
+
+The mission ledger stands at **19 records** and every desk that lists missions carries at least three (Jay's floor). Mission cards are compact by rule — image, name, tags, a one-or-two-sentence `brief` — with the full record behind a native More expander. Two desks stopped being empty: **Analysis** is a dated analyst dashboard (`space-analysis.json`: launch cadence on one stated methodology, the market board with a standing not-investment-advice line, 90-day milestones and deals, orbit counts) and **Business** is the company boards (`space-business.json`: startup watch with company-stated claims labelled, plus the established layer). Both carry a **weekly refresh duty registered in `docs/time-sensitive.md`** — the registry, not this note, owns that cadence. New honest phase label: `data-processing` (Gaia — spacecraft retired, archive live). Opinion stays empty until Jay writes it; that rule outlived another session.
 
 ## The market tape (8 Aug 2026) — the house pattern for live data on a page
 
