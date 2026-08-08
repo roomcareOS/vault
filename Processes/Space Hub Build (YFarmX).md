@@ -57,4 +57,12 @@ And an ordering rule: **write the article before the hero prompt** — art that 
 
 The honest summary from the completion doc: the machinery works; what the section lacks is journalism, and the next unit of work is articles, not features. (The [[YFarmX]] status snapshot records the Space desk's first live news article on 5 August.) **Post-launch note, 7 Aug:** the shared-banner art blocker is resolved (every desk owns its banner); empty desks still render their honest empty states, and articles remain the real work.
 
+## Traps the 7 August adversarial review caught (worth remembering)
+
+Twenty-four confirmed findings, all fixed before the production push. Three generalise beyond this build:
+
+- **A failed dynamic `import()` is memoised by the module map** — retrying the same specifier rejects instantly from cache without touching the network, so an in-code retry of a chunk import is largely theatre. Design the fallback (here, the sprite drag) rather than the retry.
+- **`@fontsource` imports in a layout leak beyond it.** The `[slug]` article shell imports both world layouts statically, so a font CSS import in SpaceBase became a render-blocking stylesheet on 500-plus article pages that never draw the face. A hand-written `@font-face` over a self-hosted woff2 in the world's stylesheet costs nothing until an element computes to the family.
+- **Treat a superseded async load as benign, never as the machinery failing.** A picker click during the viewer's boot rejected boot's own load with 'superseded', and one catch-all marked WebGL dead for the rest of the page view. Separate "the machinery broke" from "a newer request overtook this one" in every loader.
+
 [[Map - Processes]] · [[Decisions - Space Hub (YFarmX)]] · [[Hermes Newsroom Pipeline (YFarmX)]] · [[Image Style and Prompt Libraries (YFarmX)]] · [[Robotics Launch Checklist (YFarmX)]]
