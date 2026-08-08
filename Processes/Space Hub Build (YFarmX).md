@@ -65,6 +65,14 @@ Eleven of the twelve missions on the Missions desk now carry real imagery of the
 
 The mission ledger stands at **19 records** and every desk that lists missions carries at least three (Jay's floor). Mission cards are compact by rule — image, name, tags, a one-or-two-sentence `brief` — with the full record behind a native More expander. Two desks stopped being empty: **Analysis** is a dated analyst dashboard (`space-analysis.json`: launch cadence on one stated methodology, the market board with a standing not-investment-advice line, 90-day milestones and deals, orbit counts) and **Business** is the company boards (`space-business.json`: startup watch with company-stated claims labelled, plus the established layer). Both carry a **weekly refresh duty registered in `docs/time-sensitive.md`** — the registry, not this note, owns that cadence. New honest phase label: `data-processing` (Gaia — spacecraft retired, archive live). Opinion stays empty until Jay writes it; that rule outlived another session.
 
+## Two rules learned the hard way (8 Aug 2026, evening)
+
+**A standfirst and an explainer that say the same thing make the page look broken.** Every one of the sixteen desks opened its explainer by restating its own standfirst, so each desk printed its purpose twice in different words. Jay caught it on Opinion and Defence. Rule: the explainer earns its place only by saying something the standfirst does not.
+
+**Do not explain the methodology on the page; state the fact and cite the source** (Jay, 8 Aug: "don't explain our methodology! just tell the fact"). Removed from the Analysis desk: a standing not-investment-advice line, a paragraph explaining how the launch tables were compiled, and a "no recommendations" tag. The sourcing link stays, the caveat in a row's own note stays, the essay about our process goes.
+
+**Opinion now runs**, superseding the stays-empty rule by Jay's direct instruction (8 Aug). It runs under the founder's named byline, never the house byline, and each piece argues from reporting already verified on the desk. **Defence** is a by-country capability board where every line carries a confidence label: `verified`, `announced`, `assessed` (someone else's estimate, attributed to them) or `speculation`/`disputed`. The labels are the honesty mechanism that lets the desk carry contested claims at all: Russia's orbital nuclear weapon appears with both the US assessment and Putin's denial, and China's ISR total is marked as a US figure rather than a Chinese one.
+
 ## The market tape (8 Aug 2026) — the house pattern for live data on a page
 
 Jay asked for the top space stocks with live prices at the top of `/space`,
