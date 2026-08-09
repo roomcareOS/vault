@@ -61,6 +61,12 @@ The free tier allows **100 requests per day per model**, and one article is 4 to
 
 **Fallback voice.** With no `GOOGLE_API_KEY`, or with `--gtts`, the script uses gTTS (Google Translate's free text-to-speech) with `lang='en', tld='co.uk'`. That was the house voice from 21 July to 5 August 2026 and is what the archive before that date sounds like.
 
+## Normal speed on the website is 1.2, and the buttons multiply it (Jay, 9 August 2026)
+
+Both players (the article page with its floating dock, and the podcast show page) treat the number on the speed button as a **multiplier on a 1.2 baseline**, not as the playback rate. The button reading 1x leaves the element at 1.2; 1.2x plays at 1.44; the show page's 2x plays at 2.4. Jay's instruction: *"make one point two x the default one x speed ... so if the user chooses one point two x, it's actually gonna be one point two x of one point two x if you get what I mean ... otherwise, it's too slow."*
+
+The labels stay nominal deliberately. A listener is choosing how much faster than normal they want it, and normal moved; relabelling the ladder 1.2 / 1.44 / 1.68 would put arithmetic on a button. **Anything that reads the rate for its own purposes must read the effective rate, not the label**: the consonant-clarity chain on the article player was rewired to do exactly that in the same change, or its thresholds would have drifted up by a fifth without anyone noticing. `BASE_RATE` is defined in both `src/pages/[slug].astro` and `src/pages/podcast/index.astro`; change one and you must change the other. Stored preferences (`yfx-audio-rate`, `yfx-pod-rate`) keep the nominal number, so no migration was needed. Measured in a browser before shipping: article 1x = 1.2 and 1.2x = 1.44, show page 1x = 1.2 and 2x = 2.4 across all seven cards.
+
 ## How this relates to the video cuts
 
 The vertical cuts in [[Video Production (YFarmX)]] deliberately use the **same house voice as the article players**, so the films sound like the site, and every renderer takes its voice from the same script. Everything around the voice is synthesised from scratch — nothing is sampled, so **no music licence attaches to any file we produce**. That is what leaves the obvious move open: TikTok rewards a trending sound from its own library, and our bed is quiet enough to sit under one or be muted entirely ([[Social Syndication (YFarmX)]]).
