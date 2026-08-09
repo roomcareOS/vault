@@ -53,6 +53,14 @@ Jay asked to try ChatGPT's image model in place of Nano Banana Pro (*"On OpenRou
 
 The chat route has no aspect parameter at all for this model (`supported_parameters` confirms it), and no amount of prompt wording fixes it: two attempts saying "wide landscape banner, do not produce a square image" both came back square. So `scripts/make-image.mjs` gained `--route`, defaulting to **images** whenever there is no `--input`. **Restyles must stay on `--route chat`** because only that route accepts a source image, which is the one thing the cheap door cannot do. Worth re-testing whether the images endpoint fixes Nano Banana 2's aspect-ratio quirk on text-to-image too; the sharp letterbox workaround may be obsolete for everything except restyles.
 
+## Quoting a post from X when you cannot screenshot it (9 Aug 2026)
+
+x.com resets the connection on a headless browser, so a session cannot take a screenshot of a post however the proxy is configured. Two things do work and are enough: **X's own oEmbed endpoint**, `https://publish.twitter.com/oembed?url=<post url>&omit_script=1`, returns the real text, author name and date as JSON; and plain `curl` on the post URL puts the text in the page's `<title>`. Post ids can be scraped off a profile with `curl https://x.com/<handle> | strings | grep -o 'status/[0-9]\{18,20\}'`.
+
+From that, render a **house quote card**: the verbatim text, the handle, the date and the post id on each quote, so a reader can check every line. Two rules on it. Never dress the card as X's interface, because our own rendering presented as an authentic screenshot is a fabricated record. And never generate a tweet image from a model: a real person's words in a made picture is the same offence with worse accuracy. When Jay supplies a genuine screenshot he took himself, that is a real record and can be used as one.
+
+This is also a sourcing route, not just an illustration one. The playbook bars citing rival outlets, and the outlets were wrong twice on the BIP-110 story: they attributed "misguided and unusually careless" jointly to Adam Back and Mark Erhardt when the review thread shows the words are Erhardt's and Back is not in it, and they implied Chris Guida's proof-of-work code was primed when his own post says no activation deadline has been set. **The principals' own posts are primary, free, and more accurate than the write-ups of them.**
+
 ## The brand look (marketing, app store, banners — NOT article heroes)
 
 Our own identity is the opposite register: clean, premium, confident. The flat 2x2 puzzle-cube mark (blue #015ee5 / red #f51e13 / green #01832c, never 3D), the "YFarmX" wordmark in Inter 800, two approved straplines only ("Intelligence for an accelerating world", "the frontier of compute"), generous negative space. The dossier collage is reserved for news.
