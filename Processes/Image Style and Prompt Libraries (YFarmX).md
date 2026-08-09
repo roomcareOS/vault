@@ -40,6 +40,19 @@ For real hardware (spacecraft, rovers, stations — the Space missions desk was 
 
 The credit string ships with the image (for the missions desk it lives in `space-missions.json` as `imageCredit` and renders on the card next to `last verified`). Restyled images say `restyled` in the credit; unmodified ones do not.
 
+## The OpenAI image model, and the cheap door (9 Aug 2026)
+
+Jay asked to try ChatGPT's image model in place of Nano Banana Pro (*"On OpenRouter, can you use chat GPT image too instead of NanoBanana Pro?"*). Verdict from the open weights hero and its infographic: **`openai/gpt-5.4-image-2` renders text and logos better than Nano Banana Pro.** Twenty real marks in one collage, every one accurate (including `moz://a` and Anthropic's backslash wordmark), and every word spelled right first time, so `patch_image.py` was not needed once. It is now the first choice where a hero or an infographic carries words.
+
+**The door you knock on changes the price by 6.5x.** OpenRouter has two: the chat-completions route the script always used, and `/api/v1/images/generations`. Measured on the identical prompt and model, same day:
+
+| Route | Aspect | Cost |
+| --- | --- | --- |
+| chat completions | ignored `16:9`, returned 1024x1024 twice | $0.2376 |
+| images endpoint | honoured `aspect_ratio`, returned 1536x864 | $0.0363 |
+
+The chat route has no aspect parameter at all for this model (`supported_parameters` confirms it), and no amount of prompt wording fixes it: two attempts saying "wide landscape banner, do not produce a square image" both came back square. So `scripts/make-image.mjs` gained `--route`, defaulting to **images** whenever there is no `--input`. **Restyles must stay on `--route chat`** because only that route accepts a source image, which is the one thing the cheap door cannot do. Worth re-testing whether the images endpoint fixes Nano Banana 2's aspect-ratio quirk on text-to-image too; the sharp letterbox workaround may be obsolete for everything except restyles.
+
 ## The brand look (marketing, app store, banners — NOT article heroes)
 
 Our own identity is the opposite register: clean, premium, confident. The flat 2x2 puzzle-cube mark (blue #015ee5 / red #f51e13 / green #01832c, never 3D), the "YFarmX" wordmark in Inter 800, two approved straplines only ("Intelligence for an accelerating world", "the frontier of compute"), generous negative space. The dossier collage is reserved for news.

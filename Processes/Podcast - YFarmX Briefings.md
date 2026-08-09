@@ -28,6 +28,14 @@ Enforced twice in `scripts/make-podcast.py` — the casting prompt states it as 
 
 The disclosure line ships on the show and every episode: the voices are not real people; the reporting is written and edited by the desk. Matches `/how-we-use-ai/`.
 
+### The names come at the END (Jay, 9 August 2026)
+
+Nobody introduces themselves at the top: the first thing a listener hears is the story. After the closing line, one speaker says thanks for listening, then each names themselves in the past tense with a handful of words only that character would say. Jay's brief: *"at the end have them introduce themselves, not in the beginning. At the end, say, thanks for listening. I was Sally, blah blah, and then the other person, blah blah, make them sound like their personality as well."* This reverses the older "never say thanks for listening" rule, which now applies to the top of the show only. The same instruction widened the interruption device from one or two an episode to two or three (*"make sure the podcast is interactive, they joke, they interrupt, really human dialogue"*). Both live in the SYSTEM prompt in `scripts/make-podcast.py`.
+
+The sign-off earns its place when the line is in character rather than a name read out. From the first episode under the rule, on the open weights letter: Alice, *"glad we got through that without anyone reading the room"* (a callback to the Sacks post the episode quoted); Bob, *"and the letter still asks nobody to open anything"*; Sally, *"two open questions, and no published evidence for either"*.
+
+**Hand-editing the script is the designed workflow, not a fallback.** `--script-only` writes to `data/podcast-scripts/<slug>.txt`, and `--script=<path>` renders an edited file, so a weak interruption or a stray em dash is fixed for free instead of by re-rolling a paid generation. The container needs `pip install miniaudio lameenc` before the first render of a session; the script only imports them at assembly time, so it fails after the whole script has been written.
+
 ## How an episode happens
 
 1. The desk publishes an article — the episode never leads the reporting.
