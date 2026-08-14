@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/social-linkedin.md, yfarmx/docs/social-tiktok.md, yfarmx/docs/playbook.md, yfarmx/docs/social.md; Jay's hashtag rule 8 Aug 2026
-updated: 2026-08-08
+updated: 2026-08-14
 ---
 
 # Social Syndication (YFarmX)
@@ -52,7 +52,7 @@ node scripts/queue-post.mjs --text "X copy" \
   --url "https://yfarmx.com/slug/" --at "2026-07-21T09:00:00Z"
 ```
 
-Omit `--at` to go out on the next run. **Times are UTC** — British Summer Time is UTC+1, so 09:00 UK is `08:00:00Z`. The script's `--linkedin`, `--also-linkedin` and `--no-x` flags write into the **nested LinkedIn block, which is the dormant path** and will never fire; a LinkedIn post is a hand-written entry in the Buffer queue.
+Omit `--at` to go out on the next run. **Times are UTC** — British Summer Time is UTC+1, so 09:00 UK is `08:00:00Z`. **Since 14 August 2026 the script's `--linkedin`, `--also-linkedin` and `--no-x` flags write the Buffer entry directly** (channel id pinned, `pending` until `buffer.yml` is dispatched by hand) — the dormant nested direct-API block is no longer written at all. Fill in `link.title/description/image` on the new Buffer entry before dispatching for a proper card. This closed the 14 August incident where seven posts sat silently pending on the path with no secrets.
 
 **Statuses, per platform:** `pending` (waiting) · `posted` (done, carries an id) · `failed` (gave up after three tries, reason in `error`). Top-level `hold` freezes a whole entry, `skip` means "not to X" (LinkedIn only), and `example` is an ignored sample.
 
