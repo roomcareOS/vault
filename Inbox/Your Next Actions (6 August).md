@@ -1,12 +1,16 @@
 ---
 tags: [inbox, cross]
-source: Jay's request, 6 August 2026
-updated: 2026-08-06
+source: Jay's request, 6 August 2026; refreshed against live evidence 14 August 2026
+updated: 2026-08-14
 ---
 
 # Your Next Actions (6 August)
 
 Step by step, in the order that clears the most. **Todoist still owns the state** — tick the cards there as you go; this is just the how-to.
+
+> **Refreshed 14 August 2026.** The board was audited against live evidence rather than trusted. Four items were already done and are marked so below: the staging password (§2), the private staging site, the GitHub Actions billing block, and the Buffer token. The Seedance week (§4) expired on 13 August and Jay dropped it. The OpenRouter top-up (§12) is deferred about a week on Jay's call, which moves R2 to the top.
+>
+> **Order as of 14 August, by how many Todoist cards each clears:** §1 R2 (5) → §3 Search Console (4) → §7 Vercel (4) → §5 + §6b Intervooh revenue (4) → the social switch-ons (5) → §6 RoomCare pilot (6). Then §12 OpenRouter credits (8) when the money lands.
 
 Rule throughout: **never paste a secret value into chat.** Where I need one, put it in the place named and tell me the *name*, not the value. The two exceptions are marked.
 
@@ -60,9 +64,11 @@ Skip R2 Data Catalog, Object Lifecycle Rules, Bucket Lock and Default Storage Cl
 
 ---
 
-## 2. Cloudflare — the staging password
+## 2. Cloudflare — the staging password ✅ DONE
 
-**Why:** staging fails closed right now, so nobody can see it, including you. It also blocks promoting the Space hub.
+**Done at some point after 9 August, and nobody wrote it down.** Verified 14 August: `https://staging.yfarmx.pages.dev` answers **401 with the sign-in form**, and the gate only serves that form once `STAGING_PASSWORD` exists (an unset secret returns 503 and setup instructions instead). Both screens look like a lock, which is how it went unnoticed for days. **Test the gate by its status code, not by eye.** The steps below are kept only for the next time it needs changing.
+
+**Why it mattered:** staging failed closed, so nobody could see it, including you. It also blocked promoting the Space hub.
 
 1. **dash.cloudflare.com** → **Workers & Pages** → click **yfarmx**.
 2. **Settings** tab.
@@ -103,13 +109,11 @@ Then open `https://staging.yfarmx.pages.dev` on phone, Chromebook and PC and sig
 
 ---
 
-## 4. The Seedance shot list
+## 4. The Seedance shot list ❌ DROPPED
 
-**Why:** the free week runs Fri 7 – Thu 13 Aug and cannot be extended.
+**The free week ran Fri 7 – Thu 13 August 2026 and expired unused. Jay's call, 14 August: drop it.** The six cards written against that window (the shot list, the all-properties clip run, the yfarmx brand loops, the Norwich Drones set, the Intervooh re-renders, RoomCare films four and five) come off the board rather than being carried on paid credits.
 
-**This one is mine, not yours** — I can draft the whole list from the existing plans (`docs/tiktok-plan/`, the RoomCare and Intervooh film scripts, `docs/media-storage.md`). It would cover yfarmx brand loops, Norwich Drones intro/outro, RoomCare films four and five, the Intervooh re-renders, and whether myhomework wants anything at all.
-
-**Just say "draft the Seedance shot list"** and you will have it before the window opens.
+**What this does not change:** the underlying film and TikTok work still exists on its own cards. Only the free-window framing is gone. If a future free window opens, the shot list is still the first thing to write — an unlimited week spent planning is a five-day week.
 
 ---
 
@@ -220,8 +224,8 @@ Vercel usually explains a block in one line — a plan limit, a payment needing 
 
 ## 12. Security — the key rotations
 
-- **OpenRouter:** openrouter.ai → **Settings → Keys** → revoke the current key, create a new one. **Put it straight into GitHub → roomcareOS/yfarmx → Settings → Secrets and variables → Actions → `OPENROUTER_API_KEY`.** Do not send it to me in chat.
-- **Also while you are there:** **Settings → Credits → turn auto top-up OFF** before you buy the £1,400. An account with no auto top-up cannot spend money it does not have. Every per-key cap is a scheduling guard; this is the only real spending guard.
+- **OpenRouter key:** ✅ **done** — rotated on 7 August and in use since (the podcast page art was generated on the new key under an $8/day cap).
+- **OpenRouter credits:** ⏳ **deferred about a week, Jay's call 14 August.** When the money lands: **Settings → Credits → turn auto top-up OFF *before* buying the £1,400.** An account with no auto top-up cannot spend money it does not have. Every per-key cap is a scheduling guard; this is the only real spending guard. This purchase is the single biggest unblock left — it gates the house-voice audition, and that gates RoomCare film three, the five Intervooh brand voice lines and their re-renders, the TikTok voice and V01/V31, and the two missing article MP3s. Eight cards behind one payment.
 - **Gemini:** Google AI Studio → **API keys** → delete the exposed key. No replacement — we have dropped Google.
 - **Todoist:** **Settings → Integrations → Developer → Reset API token** (your own deadline is 12 Aug). Tell me when you do, because my access stops working at that moment and I will need the new one.
 
