@@ -22,6 +22,7 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 - [[Audio and Voice Production (YFarmX)]] — the house voice and its fixed settings, `make-audio.py`, the daily quota, the fallback, and the rule that the voice never changes without Jay.
 - [[Podcast - YFarmX Briefings]] — live since 6 Aug: the engraved five-character cast takes one article apart per episode, measured into a self-hosted feed; the show page is progressive enhancement over native audio. Directory submissions still pending, in a fixed order.
 - [[Image Style and Prompt Libraries (YFarmX)]] — the cyber-dossier house look and the index of self-contained prompt packs.
+- [[Freshness labels only claim a cadence while it is true]] — refresh promises on static pages are infrastructure claims and fail silently with the infrastructure; print them conditionally, re-check in the browser, and say "live" only once live figures land. Set 14 Aug 2026 after the ticker read "refreshed every six hours" over three-day-old prices.
 - [[Staging and Backups (YFarmX)]] — staging branch Jay reviews before anything reaches live, plus daily backups.
 - [[Ops Runbooks (YFarmX)]] — SEO go-live, email anti-spoofing DNS, page-freshness registry: the account-level clicks only Jay can do.
 - [[Pipeline Security Rules (YFarmX)]] — where the real risk sits: secrets on steps not jobs, `permissions:` on every workflow, a lost `git push` that quietly double-posts, why `_headers` never reaches a Function, and localStorage as an input.
