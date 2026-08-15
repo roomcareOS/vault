@@ -59,7 +59,20 @@ Jay reviewed the whole format in a structured question round on 15 August and hi
 
 **Jim's cost myth, corrected the same day**: the "ten times the others" figure was the four-provider era's price table (MiniMax at $100/M chars), which survived the 7 August all-Gemini recast unnoticed in `docs/podcast-cast.md`. Since the recast the whole cast costs the same per episode. The stale table is fixed; the trap to remember is that a price table is provider-era-specific and dies with the provider.
 
-**Still open from the round**: the house sting (open and close; very short, catchy, not cheesy; five synthesized options with Jay to choose) and his approval of the regenerated 3000x3000 cover. The sample episode in the new format is blocked only on `OPENROUTER_API_KEY` reaching the session environment.
+## The show intro is generated, not composed (15 August 2026)
+
+Jay rejected a first set of five hand-synthesised stings outright (*"i dont like previous noises, use google a proper podcast intro"*) and supplied a Google AI key to do it properly. The intro is now produced by `scripts/make-intro.py`: **Google Lyria 3 Pro writes the music**, **Gemini TTS speaks the ident** *"You're listening to YFarmX Briefings"*, and the script mixes them into a six-second opener on the standard broadcast shape (music alone on its hook, ducked under the words, back up for a beat, fade into the episode). Five presets ship with it: the-daily, broadcaster, broadsheet, dark-ambient, newsroom-pulse.
+
+**Two production findings worth keeping, both learned the hard way:**
+
+1. **Spell the brand `Y-Farm-X` for any text-to-speech.** Given the plain "YFarmX" every voice says *"you-farm-ex"*. Verified by transcribing the generated audio back with `gemini-flash-latest` and asking for the phonetics, which is the cheap general way to check ANY pronunciation before shipping audio.
+2. **Lyria drifts to upbeat retro unless the prompt carries explicit negatives.** Round one asked for "restrained broadsheet" and returned synthwave, 1980s synth pop and EDM. Every preset now carries a NOT list, and that is what makes them land. A pizzicato/marimba brief drifted to whimsical folk twice even *with* the negatives, so that palette is avoided entirely. This is the same lesson the image prompts learned: positive adjectives alone drift, the negative clauses are load-bearing.
+
+Also: Lyria occasionally returns a candidate with no content at all. It is transient and a plain retry succeeds, so the caller treats it as a network error rather than crashing.
+
+**Still open from the round**: Jay's pick of one music preset plus one ident voice (Charon, Schedar, Orus and Algieba auditioned alongside Aoede; the three non-cast voices read as a distinct announcer rather than a character introducing the show), and his approval of the regenerated 3000x3000 cover. The sample episode in the new format is blocked only on `OPENROUTER_API_KEY` reaching the session environment, since `make-podcast.py` writes its scripts through OpenRouter.
+
+**Provider note, unresolved:** the intro runs on Google, which contradicts the 14 August record that Google had been dropped estate-wide in favour of OpenRouter. Jay's instruction was "google tts use". An Inbox card asks him whether that reversal is permanent and how far it reaches.
 
 ## How an episode happens
 
