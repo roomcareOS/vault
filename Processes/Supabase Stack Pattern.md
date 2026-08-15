@@ -1,7 +1,7 @@
 ---
 tags: [process, cross]
 source: [RoomCare-PRD.md, docs/Security-and-Compliance.md, docs/Connect-The-Backend.md, supabase/functions/README.md]
-updated: 2026-08-14
+updated: 2026-08-15
 ---
 
 # Supabase Stack Pattern
