@@ -1,7 +1,7 @@
 ---
 tags: [process, intervooh]
 source: docs/SETUP-BILLING.md
-updated: 2026-08-06
+updated: 2026-08-14
 ---
 
 # Billing Setup (Intervooh)
@@ -19,7 +19,15 @@ Ops runbook: switch on Stripe billing for [[Intervooh]]. The code is fully wired
 - [ ] **Copy the secret API key** → `STRIPE_SECRET_KEY` (use the test-mode key while testing).
 - [ ] **Add the webhook** (this is what keeps plans in sync): endpoint `https://<project-ref>.supabase.co/functions/v1/billing`, events `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`; copy the signing secret → `STRIPE_WEBHOOK_SECRET`.
 - [ ] **Enable the customer portal** (Stripe Settings → Billing) so "Manage billing" works: cancelling, updating cards, viewing invoices.
-- [ ] **Add the secrets in Supabase** (Project Settings → Edge Functions → Secrets): `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_MONTHLY`, `STRIPE_PRICE_PASS`, optional `SITE_URL`, and `SUPABASE_SERVICE_ROLE_KEY` (needed by the billing webhook and account deletion).
+- [ ] **Add the secrets in Supabase** (Project Settings → Edge Functions → Secrets): `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_MONTHLY`, `STRIPE_PRICE_PASS`, optional `SITE_URL`.
+
+> **The service-role secret can no longer be added by hand (found 14 August 2026).** Supabase now rejects any function secret whose name starts with `SUPABASE_` — *"Name must not start with the SUPABASE_ prefix"* — because the platform reserves and injects those itself. So the instruction that used to sit on this line, "also add `SUPABASE_SERVICE_ROLE_KEY`", is **impossible to follow** and any doc still saying it is stale.
+>
+> What the code actually does: `resolveServiceKey()` in `supabase/functions/billing/index.ts` tries `SUPABASE_SERVICE_ROLE_KEY`, then falls back to `SUPABASE_SECRET_KEYS` — and *that* one is auto-injected on new API-key projects. So billing may already have its key with nothing added at all.
+>
+> **How you find out:** run the Stripe rehearsal. If the webhook answers `Billing webhook is missing a server key`, auto-injection is not happening, and the fix is one line in `resolveServiceKey()` to also accept a non-prefixed name such as `SB_SERVICE_ROLE_KEY` (Jay saved one under that name on 14 Aug; it is inert until the code reads it). Never rename it to something starting with `SUPABASE_` — the dashboard will refuse.
+>
+> The same trap applies to every other function in the estate whose setup notes name a `SUPABASE_`-prefixed secret.
 - [ ] **Run the database migration** `supabase/migrations/0002_billing_and_caps.sql` (SQL editor or `supabase db push`). It adds the pro-until and Stripe-customer columns, AI cost tracking, and the per-minute burst counter. **The AI budget limits only bite once this has run** — until then the function falls back to the old calls-only cap.
 - [ ] **Test before going live**: test-mode key + test price ids + test webhook; pay with card `4242 4242 4242 4242`; watch the plan flip to `pro`; cancel in the test portal; watch it flip back. Then swap the four secrets to live values.
 
