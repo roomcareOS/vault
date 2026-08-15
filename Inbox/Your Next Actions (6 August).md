@@ -1,22 +1,24 @@
 ---
 tags: [inbox, cross]
 source: Jay's request, 6 August 2026; refreshed against live evidence 14 August 2026
-updated: 2026-08-14
+updated: 2026-08-15
 ---
 
 # Your Next Actions (6 August)
 
 Step by step, in the order that clears the most. **Todoist still owns the state** — tick the cards there as you go; this is just the how-to.
 
-> **Refreshed 14 August 2026.** The board was audited against live evidence rather than trusted. Four items were already done and are marked so below: the staging password (§2), the private staging site, the GitHub Actions billing block, and the Buffer token. The Seedance week (§4) expired on 13 August and Jay dropped it. The OpenRouter top-up (§12) is deferred about a week on Jay's call, which moves R2 to the top.
+> **Refreshed 14 August 2026, and again 15 August after the unblock run.** Now DONE and verified: the staging password (§2), the Actions billing block, the Buffer token, **§1 in full — R2 credentials, the media domain, and the entire 102-file audio cutover, live**, **§3 in spirit — Search Console needed no re-verification (the property was always DNS-verified); the real 404s are fixed live and the sitemaps re-submitted**, **§7 — myhomework unfrozen (the cause was a missing Git connection, not billing)**, and §6's Intervooh half-done (migration 0002 run; the service-role secret can no longer be added under its documented name — see [[Billing Setup (Intervooh)]]). The Seedance week (§4) expired and Jay dropped it. Jay's 15 Aug call: both apps stay pre-revenue ~30 days, so §5 Stripe runs on that clock.
 >
-> **Order as of 14 August, by how many Todoist cards each clears:** §1 R2 (5) → §3 Search Console (4) → §7 Vercel (4) → §5 + §6b Intervooh revenue (4) → the social switch-ons (5) → §6 RoomCare pilot (6). Then §12 OpenRouter credits (8) when the money lands.
+> **Order as of 15 August:** §12 OpenRouter credits (8 cards, ~a week away) → the X API 402 decision (new, on the board) → the social switch-ons (5) → §6 RoomCare pilot (6, starts with the token reaching code.claude.com) → podcast validation + directory submissions. Todoist's 🚩 card carries the same order.
 
 Rule throughout: **never paste a secret value into chat.** Where I need one, put it in the place named and tell me the *name*, not the value. The two exceptions are marked.
 
 ---
 
-## 1. Cloudflare — R2 credentials and the media domain
+## 1. Cloudflare — R2 credentials and the media domain ✅ DONE 14–15 Aug
+
+**Jay did the clicks on the 14th; the cutover executed and went live on the 15th** — 102 files on media.yfarmx.com, feed enclosures flipped, everything verified (byte lengths, seeking, CORS) before the flip. Steps kept for the next bucket.
 
 **Why:** unblocks the podcast launch, the 79-file audio cutover, off-site backups, and gives the Seedance footage somewhere to live. The free week opens tomorrow.
 
@@ -189,7 +191,9 @@ Safe to paste over — the safety rules verified on 18 July are all still in it.
 
 ---
 
-## 7. Vercel — unblock myhomework
+## 7. Vercel — unblock myhomework ✅ RESOLVED 15 Aug, and the theory below was wrong
+
+**It was never billing or a plan limit** (usage was 92 MB of 100 GB). The project was **never connected to Git** — every deploy had been a hand-run `vercel deploy`, so pushes deployed nothing, silently. Jay connected the repo (root directory `web`), and a second latent bug fell out: `web/vercel.json` lacked `cleanUrls`, so every prerendered page 404ed at its canonical URL. Both fixed; all 14 pages verified live. The original steps stay below only as a record of the wrong trail.
 
 **Why:** the live site is frozen on 18 July. Three deploys were rejected before the build even started.
 
