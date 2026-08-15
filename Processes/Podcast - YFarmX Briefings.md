@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx docs/podcast.md, docs/podcast-cast.md, flags.mjs; Jay's launch call 6 Aug, page-redesign instruction 7 Aug, casting and canon rules 8 Aug 2026
-updated: 2026-08-08
+updated: 2026-08-15
 ---
 
 # Podcast - YFarmX Briefings
@@ -54,9 +54,9 @@ Seven page images were generated on OpenRouter (Nano Banana Pro) through `script
 
 ## Remaining to full launch, in order
 
-All in `docs/podcast.md` §7; the blockers are Jay's Cloudflare clicks (Todoist has the cards):
+All in `docs/podcast.md` §7. **Step 1 is DONE (15 August 2026):** Jay created the R2 credentials and bound `media.yfarmx.com` on the 14th; the cutover ran the next evening through the one-button `audio-cutover.yml` workflow (dry-run → one verified file → the batch of 102, 290 MB). Every file was verified on the CDN — 200 with the manifest's exact byte length, 206 on Range requests (Apple requires seeking), CORS for yfarmx.com — **before** `SHOW.audioBase` flipped, so the feed never pointed at a missing key. All enclosures now serve from `media.yfarmx.com`; guids are unchanged, so no re-delivery. Two traps for the record: `push-audio.mjs` originally matched only `audio:` and would have left all 17 `podcastAudio:` episode files behind, and `verify-seo` would have failed the first CDN URL — both fixed in the same change. The MP3s are still in the repo tree; deleting them is a deliberate later cleanup commit.
 
-1. R2 credentials + `media.yfarmx.com` binding → run the audio cutover (`scripts/push-audio.mjs`).
+1. ~~R2 credentials + `media.yfarmx.com` binding → run the audio cutover~~ ✅ done, above.
 2. Validate the feed externally (podba.se/validate or castfeedvalidator.com) — our checker and theirs are not the same test.
 3. Play one episode end to end in a real podcast app.
 4. **Only then** submit: Apple → Spotify → YouTube Music → Amazon → Podcast Index. A feed address is permanent; a bad first submission is expensive in a way almost nothing else on the site is.
