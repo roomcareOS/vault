@@ -1,12 +1,14 @@
 ---
 tags: [process, yfarmx]
-source: yfarmx/docs/audio.md, yfarmx/docs/video.md
-updated: 2026-08-06
+source: yfarmx/docs/audio.md, yfarmx/docs/video.md; Jay's 15 Aug 2026 format round
+updated: 2026-08-15
 ---
 
 # Audio and Voice Production (YFarmX)
 
 Every [[YFarmX]] article gets a spoken version, in **one fixed voice**. An article is not finished until it has audio, and nobody asks Jay whether he wants it ([[Article Pipeline (YFarmX)]] step 4 — apply his edits *first*, so the MP3 reads the approved words).
+
+**Status flip, 15 August 2026 (Jay): the read is BACK as the article player's default.** The 7 August "episode is the article's only audio" rule is reversed: a new article carries BOTH the single-voice read (the default, "Listen to this article") and the podcast episode (the encouraged option on the same player). **What the read speaks changed too**: the headline, then straight into the body — the "In brief" summary is never read any more; tables and images stay dropped; headings ARE read (his call: "don't skip headings"). **Aoede is settled, no longer interim** ("she's fine"). **Nothing is re-cut retrospectively**: the 84 archive reads keep their spoken In brief, the 11 episode-only articles stay episode-default; the rules bind future articles only. See [[Podcast - YFarmX Briefings]] for the same-day podcast format v2.
 
 ## The one rule above all others
 

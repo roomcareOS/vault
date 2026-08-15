@@ -1,12 +1,12 @@
 ---
 tags: [process, yfarmx]
-source: yfarmx docs/podcast.md, docs/podcast-cast.md, flags.mjs; Jay's launch call 6 Aug, page-redesign instruction 7 Aug, casting and canon rules 8 Aug 2026
+source: yfarmx docs/podcast.md, docs/podcast-cast.md, flags.mjs; Jay's launch call 6 Aug, page-redesign instruction 7 Aug, casting and canon rules 8 Aug, format review answers 15 Aug 2026
 updated: 2026-08-15
 ---
 
 # Podcast - YFarmX Briefings
 
-**LIVE since 6 August 2026.** `PODCAST_PUBLIC = true` in `src/lib/flags.mjs` on Jay's call. The show page (`yfarmx.com/podcast/`) and the RSS feed (`/podcast/feed.xml`) are public, indexed, in the sitemap, and — since 7 August — linked from the header's **More** menu and the footer. Four episodes are on the feed. **Not yet submitted to any directory**: Apple, Spotify and the rest wait on the R2 audio cutover and external feed validation ([[Media Storage and the R2 Rule (YFarmX)]], `docs/podcast.md` §7).
+**LIVE since 6 August 2026.** `PODCAST_PUBLIC = true` in `src/lib/flags.mjs` on Jay's call. The show page (`yfarmx.com/podcast/`) and the RSS feed (`/podcast/feed.xml`) are public, indexed, in the sitemap, and — since 7 August — linked from the header's **More** menu and the footer. Fourteen episodes are on the feed, all serving from media.yfarmx.com since the 15 August R2 cutover. **Not yet submitted to any directory**: external feed validation and a real-app playthrough come first, then Jay submits with his logins (`docs/podcast.md` §7).
 
 ## The format: a scripted conversation, ENGRAVED
 
@@ -35,6 +35,31 @@ Nobody introduces themselves at the top: the first thing a listener hears is the
 **The close, completed 9 Aug 2026:** *"the podcast has to have a nice 'thanks for listening, see you on the next podcast' ending"*. So the order is fixed: thanks for listening, then each speaker names themselves in character, then the LAST speaker looks ahead in five or six words ("see you on the next one"). This is the single place "see you next time" is allowed, and here it is required, so the show ends on a person rather than a full stop. Still barred even in the sign-off: a call to action, a web address read aloud, asking for follows or reviews, and trailing what the next episode covers. The sign-off earns its place when the line is in character rather than a name read out. From the first episode under the rule, on the open weights letter: Alice, *"glad we got through that without anyone reading the room"* (a callback to the Sacks post the episode quoted); Bob, *"and the letter still asks nobody to open anything"*; Sally, *"two open questions, and no published evidence for either"*.
 
 **Hand-editing the script is the designed workflow, not a fallback.** `--script-only` writes to `data/podcast-scripts/<slug>.txt`, and `--script=<path>` renders an edited file, so a weak interruption or a stray em dash is fixed for free instead of by re-rolling a paid generation. The container needs `pip install miniaudio lameenc` before the first render of a session; the script only imports them at assembly time, so it fails after the whole script has been written.
+
+## The format v2: Jay's 15 August 2026 rulebook
+
+Jay reviewed the whole format in a structured question round on 15 August and his answers are now the rulebook every episode must follow. Engraved in `scripts/make-podcast.py` and `docs/podcast-cast.md`; where these touch earlier rules, these win. The companion decision the same day: **the single-voice read-out returned as every article's DEFAULT audio** (title then body, never the In brief, never tables, headings kept), with the episode as the encouraged "Listen to this podcast" option on the same player — see [[Audio and Voice Production (YFarmX)]].
+
+1. **Pace 1.2, not 1.36** (*"speed, slightly too fast"*). The file carries the pace; players multiply from there.
+2. **Length varies with the story, capped at five minutes**; two to three remains typical.
+3. **The cold open stays pure.** No ident, no headline announce, no date; the story is the first thing heard.
+4. **Free-form structure**, governed by the creative-but-human rules, never a fixed running order.
+5. **Fixed pairings per desk**: AI = Alice+Bob, crypto = Melissa+Bob, quantum = Alice+Jim, space = Sally+Jim, any security story = Sally+Bob. Two voices default; the writer may add Melissa (money) or Jim (history) only when the story earns a third. This replaced the model cast-pick call.
+6. **Add before you ask** (*"weird how the female just asks a question, without adding to previous speaker's context"*). No bare questions from anyone: contribute a fact or respond first, then let the question ride on it. Two experts in conversation, both adding facts they have read.
+7. **No critic's-voice lines** (*"'that ordering is the story, not a...' doesn't sound good"*): never talk about "the story" as an object; state the fact and its consequence.
+8. **Human, not overacted**: the 14 Aug newsreader register stands, but the voices sound like real people in natural conversation, with no long pauses or audible breaths in the gaps.
+9. **Interruptions stay at two to three per episode.**
+10. **Background strictly from our own published reporting**: a BACKGROUND block of previously published YFarmX articles (body-linked first, then the desk's recent coverage) is the only permitted source beyond the article. A sentence of continuity at most.
+11. **Character memory sheets** in `data/podcast-cast-memory/<Name>.md`: one line per episode a character appears in, appended when the episode is cut, shown to the writer so a regular can carry a position forward. Hand-editable.
+12. **The sign-off gains a follow ask**: after the names ("It's been Sally." / "I was Jim."), the last speaker closes with a very brief "follow YFarmX Briefings", worded slightly differently every episode, plus "see you on the next one". Web addresses, review begging and next-episode teasers stay barred; this is the show's only call to action.
+13. **Short podcast-native episode titles**: the writer's first line is `TITLE:` (three to seven words), wired as `podcastTitle:`; the feed and apps prefer it. The back catalogue keeps its old titles.
+14. **Every article stays an episode**; specials only when Jay orders them.
+15. **Show notes are minimal**: article description, article link, disclosure line. No key points, no sources list.
+16. **Nothing regenerated retrospectively** — all of this binds future episodes only; the catalogue stays as it is.
+
+**Jim's cost myth, corrected the same day**: the "ten times the others" figure was the four-provider era's price table (MiniMax at $100/M chars), which survived the 7 August all-Gemini recast unnoticed in `docs/podcast-cast.md`. Since the recast the whole cast costs the same per episode. The stale table is fixed; the trap to remember is that a price table is provider-era-specific and dies with the provider.
+
+**Still open from the round**: the house sting (open and close; very short, catchy, not cheesy; five synthesized options with Jay to choose) and his approval of the regenerated 3000x3000 cover. The sample episode in the new format is blocked only on `OPENROUTER_API_KEY` reaching the session environment.
 
 ## How an episode happens
 
