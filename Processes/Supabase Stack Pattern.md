@@ -1,7 +1,7 @@
 ---
 tags: [process, cross]
 source: [RoomCare-PRD.md, docs/Security-and-Compliance.md, docs/Connect-The-Backend.md, supabase/functions/README.md]
-updated: 2026-08-06
+updated: 2026-08-14
 ---
 
 # Supabase Stack Pattern
@@ -27,8 +27,22 @@ One language everywhere, instant web deploys, RLS makes the consent model enforc
 - [[RoomCare]]: the deep end — device tokens stored hashed, append-only event history, 60-minute signed URLs for private media, a seven-attack live security proof before real data. Runbooks: [[Deploy and Backend Runbooks (RoomCare)]].
 - [[MyHomework]] and [[Intervooh]]: owner-only RLS, a single edge-function AI proxy with server-side spend budgets, Stripe billing behind the same wall.
 
+## What the free tier will not do (found 14 August 2026)
+
+Two security controls the estate's own checklists ask for are **Pro-plan only**, and they fail silently by being greyed out rather than erroring:
+
+- **"Prevent use of leaked passwords"** (Authentication → Sign In / Up → Passwords). Blocks passwords found in known breaches. Asked for by the RoomCare pilot checklist; impossible on Free.
+- **Daily backups.** Required before real resident data enters RoomCare, per its incident-response plan.
+
+**Minimum password length is free** — set it on every project regardless. Supabase's floor is 6, which is not a default anyone should keep; 8 is the sensible consumer floor and 12 the standard for staff-facing products. Intervooh was moved off 6 on 14 August.
+
+**Pro is billed per organisation, not per project.** The estate currently has two Supabase organisations — one holding Intervooh, another holding roomcare-pilot and MyHomework — so subscribing to both means paying the subscription twice, indefinitely. Consolidating first (the long-standing "the fuller one becomes the keeper" plan) turns two bills into one. Against that, moving a project between organisations means re-pointing every consumer of its URL and keys: Vercel environment variables, edge-function secrets, the apps themselves. Decide it deliberately before subscribing, not after. Jay's position, 14 August: Pro within 30 days.
+
+**Function secrets can no longer use the `SUPABASE_` prefix.** The dashboard refuses the name outright, because the platform reserves and injects those itself. Any setup note in the estate that says "add `SUPABASE_SERVICE_ROLE_KEY` as a function secret" is stale — see [[Billing Setup (Intervooh)]] for what the code actually reads and how to tell whether auto-injection is working.
+
 ## Related
 
 - [[Map - Processes]] · [[Home]]
 - [[RLS and Schema Change Process]] · [[Deploy and Backend Runbooks (RoomCare)]]
+- [[Billing Setup (Intervooh)]] — the `SUPABASE_` prefix trap in full
 - [[RoomCare]] · [[MyHomework]] · [[Intervooh]]
