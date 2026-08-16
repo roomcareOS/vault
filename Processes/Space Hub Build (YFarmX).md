@@ -185,6 +185,42 @@ entity chips and related-records in the shared article shell (touches every
 world's articles); company/vehicle profiles, watchlists, filters, the global
 type-scale change (needs his eye on staging first).
 
+## The visual pass, and generated imagery rules (16 Aug 2026)
+
+Jay's brief after reviewing the IA redesign: the world below the hero should
+*be* space, not flat black, and text-heavy modules should carry images. What
+this established, beyond the one-off work:
+
+- **Generated backgrounds are in the house kit now.** Two Nano Banana 2
+  starfields live at `public/media/space/bg-starfield*.webp`, applied as a
+  `position: fixed` viewport layer via `.space-world body::before` in
+  `space.css`. Fixed-position, not `background-attachment: fixed` (janky on
+  phones) and not tiling (visible seams). Compressed to 7KB/5KB/2KB — a
+  starfield survives brutal webp compression because it is mostly black.
+- **Model naming matters when Jay names a model.** "Nano Banana 2" is
+  `gemini-3.1-flash-image` — a distinct, cheaper model from "Nano Banana Pro"
+  (`gemini-3-pro-image`). List the API's models rather than assuming the
+  nickname maps to the obvious one.
+- **Generated hardware illustrations are allowed on the defence board** where
+  no licence-clean photograph exists, under the same honesty mechanism as
+  everything else: the credit says "generated concept artwork of the
+  satellite class, not the actual spacecraft", the alt text says concept
+  artwork, and no real insignia appears. Japan and South Korea carry them;
+  France keeps its honest no-image note until Jay asks.
+- **Never cut out photographs found online for decoration.** Jay's voice
+  brief asked for cutout rockets from screenshots; house class-archetype
+  renders were used instead, because SpaceX imagery is non-commercial
+  licensed and the archetype rule bans captioning any render as the actual
+  vehicle. The look is the same; the licensing risk is zero. Raised with Jay
+  in the delivery note rather than silently obeyed or silently ignored.
+- **Empty desks get sourced boards, not filler.** Security's incident record
+  and Policy's rulebook were built from researcher-verified primary sources
+  only; every candidate that failed verification (Trident Juncture jamming,
+  the reported 2025 Viasat breach, unverifiable quotes) stayed off and is
+  listed in the repo status log. The label mechanism (attributed /
+  acknowledged / unattributed, and in-force / non-binding / proposed) is the
+  same honesty device as the defence board's verified/announced/disputed.
+
 ## Count launches, do not read them (16 Aug 2026)
 
 The Analysis desk's cadence table was built by asking a model to read Wikipedia's
