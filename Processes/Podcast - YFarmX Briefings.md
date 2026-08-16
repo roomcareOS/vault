@@ -55,7 +55,8 @@ Jay reviewed the whole format in a structured question round on 15 August and hi
 13. **Short podcast-native episode titles**: the writer's first line is `TITLE:` (three to seven words), wired as `podcastTitle:`; the feed and apps prefer it. The back catalogue keeps its old titles.
 14. **Every article stays an episode**; specials only when Jay orders them.
 15. **Show notes are minimal**: article description, article link, disclosure line. No key points, no sources list.
-16. **Nothing regenerated retrospectively** — all of this binds future episodes only; the catalogue stays as it is.
+16. **The outro always dates the episode** (*"outro should always 'this podcast was produced on x date' or similar"*): one line, one speaker, beside the thanks. The spoken form is computed by `spoken_date()` in `make-podcast.py` and handed to the writer as `PRODUCED:` rather than left to the model, because the house style speaks dates as "the fourth of August" and a model rendering its own date gets the year wrong often enough to matter on the single line where the date IS the point. The wording around it varies per episode; the date does not.
+17. **Nothing regenerated retrospectively** — all of this binds future episodes only; the catalogue stays as it is.
 
 **Jim's cost myth, corrected the same day**: the "ten times the others" figure was the four-provider era's price table (MiniMax at $100/M chars), which survived the 7 August all-Gemini recast unnoticed in `docs/podcast-cast.md`. Since the recast the whole cast costs the same per episode. The stale table is fixed; the trap to remember is that a price table is provider-era-specific and dies with the provider.
 
