@@ -153,6 +153,48 @@ liftoff so the outcome is readable the next morning. Anything forward-looking �
 gone as the next one up. Found live on `/space` on 16 August; the same defect had
 been showing since QZS-7 flew on the 11th.
 
+## Count launches, do not read them (16 Aug 2026)
+
+The Analysis desk's cadence table was built by asking a model to read Wikipedia's
+itemised launch tables. **That is not reproducible.** Two passes over the same
+page on the same day returned Electron 11 and Electron 6; the true figure was 10.
+A long table read by a small model silently truncates, and nothing in the answer
+tells you it did.
+
+**Count it in code instead.** Jonathan McDowell's GCAT publishes the whole launch
+catalogue as tab-separated text — `https://planet4589.org/space/gcat/tsv/launch/launch.tsv`,
+about 14MB, plain `curl`, no key. One row per launch with date, vehicle, site,
+agency and outcome, so any count is arithmetic rather than a judgement. The
+column definitions live at `gcat/web/launch/lcols.html` and are worth reading
+once.
+
+**The `LaunchCode` field decides your totals.** First letter is the category
+(`O` orbital, `D` deep space, `S` suborbital, `M` missile); the second is the
+outcome — `S` success, `F` fail, `U` unknown, `A` pad abort, and **`E` for a pad
+explosion, which McDowell defines as "no launch occurred, but included in the
+lists for completeness."** Partial outcomes carry a percentage: `OF40` is a
+40%-success failure, `OS95` a 95%-success one.
+
+So the rule for any launch tally: **count `O` and `D`, exclude `E`, and apply the
+same rule to every year in the table.** Blue Origin's booster lost in the 28 May
+2026 static fire sits in the catalogue as `OE`; counting it would publish a
+launch that never left the pad, and leaving 2025 on a different rule would make
+the year-on-year column meaningless.
+
+**Cross-check against the operator wherever one publishes.** GCAT and SpaceX's
+own CMS agreed to the launch on Falcon 9 + Heavy, and ULA's own missions page
+(`ulalaunch.com/missions`, which lists every flight by date and vehicle) settled
+a disputed ULA figure that a Wikipedia read had called wrong. Two independent
+counts agreeing is the standard to aim for on any headline number.
+
+**The market board has a free cross-check too.** The desk's stock figures and the
+site's own six-hourly Nasdaq bake (`src/data/desk-markets.json`) are separate
+pipelines over the same tickers. Compare them when refreshing: on 16 August all
+six shared tickers agreed to the cent, which validates both. And take the closing
+price from the **last trading day**, not today — a Sunday refresh is stamped
+with Friday's close, and saying otherwise is the same class of error as the
+ticker that promised a six-hour cadence over an eleven-day-old snapshot.
+
 ## Traps the 7 August adversarial review caught (worth remembering)
 
 Twenty-four confirmed findings, all fixed before the production push. Three generalise beyond this build:
