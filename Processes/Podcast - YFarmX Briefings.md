@@ -51,7 +51,7 @@ Jay reviewed the whole format in a structured question round on 15 August and hi
 9. **Interruptions stay at two to three per episode.**
 10. **Background strictly from our own published reporting**: a BACKGROUND block of previously published YFarmX articles (body-linked first, then the desk's recent coverage) is the only permitted source beyond the article. A sentence of continuity at most.
 11. **Character memory sheets** in `data/podcast-cast-memory/<Name>.md`: one line per episode a character appears in, appended when the episode is cut, shown to the writer so a regular can carry a position forward. Hand-editable.
-12. **The sign-off gains a follow ask**: after the names ("It's been Sally." / "I was Jim."), the last speaker closes with a very brief "follow YFarmX Briefings", worded slightly differently every episode, plus "see you on the next one". Web addresses, review begging and next-episode teasers stay barred; this is the show's only call to action.
+12. **The sign-off** names each speaker, past tense, nothing else. *(Superseded in part on 16 Aug: the follow ask set here was replaced by the produced outro below.)*
 13. **Short podcast-native episode titles**: the writer's first line is `TITLE:` (three to seven words), wired as `podcastTitle:`; the feed and apps prefer it. The back catalogue keeps its old titles.
 14. **Every article stays an episode**; specials only when Jay orders them.
 15. **Show notes are minimal**: article description, article link, disclosure line. No key points, no sources list.
@@ -74,6 +74,21 @@ Also: Lyria occasionally returns a candidate with no content at all. It is trans
 **Still open from the round**: Jay's pick of one music preset plus one ident voice (Charon, Schedar, Orus and Algieba auditioned alongside Aoede; the three non-cast voices read as a distinct announcer rather than a character introducing the show), and his approval of the regenerated 3000x3000 cover. The sample episode in the new format is blocked only on `OPENROUTER_API_KEY` reaching the session environment, since `make-podcast.py` writes its scripts through OpenRouter.
 
 **Provider note, unresolved:** the intro runs on Google, which contradicts the 14 August record that Google had been dropped estate-wide in favour of OpenRouter. Jay's instruction was "google tts use". An Inbox card asks him whether that reversal is permanent and how far it reaches.
+
+## The music goes at the END (Jay, 16 August 2026)
+
+Jay picked the **C3 bed** (`caper-menace`: staccato strings over upright bass and drums, pitched low and heavy) with **Charon** as the ident voice, and moved it to the close: *"use it at the end so the start should be straight into the article."*
+
+**There is no intro.** An episode opens cold on the story. Every episode then ends in this fixed order:
+
+1. Each speaker names themselves, past tense, nothing else: *"I've been Jim."*
+2. The last of them adds the farewell to their own line: *"I've been Sally. See you on the next episode."*
+3. One final line with the date: *"This podcast was published on the sixteenth of August, twenty twenty-six."* (computed by `spoken_date()`, handed to the writer as `PUBLISHED:` — never left to the model, which gets years wrong on the one line where the date is the point).
+4. **The produced outro**, appended automatically from `public/media/podcast/outro.mp3`: the C3 bed with Charon saying *"You've been listening to YFarmX Briefings."*
+
+**Because the ident carries the show's name, the script must not name the show at the end, must not say "you've been listening to YFarmX Briefings", and must not ask for follows.** That is the ident's job, and duplicating it is the mistake to avoid. This supersedes the 15 August follow-ask rule.
+
+Assembly detail worth keeping: the outro is a finished asset, so it never goes through the speech time-stretch (`pace()` would ruin music), but it IS normalised, because it was mastered to its own peak and would otherwise land louder than the voices before it. A missing outro file **fails the render** rather than quietly shipping without it.
 
 ## How an episode happens
 
