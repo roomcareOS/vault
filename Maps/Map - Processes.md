@@ -61,3 +61,4 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 
 - [[Template - Process Note]] — the shape a new process note takes.
 - [[Generated music for a news podcast needs a rhythm section]] — why generated themes read as classical, and which briefs Lyria actually honours.
+- [[The article audio player (YFarmX)]] — the two-product player: fixed layout, per-theme fills, and why responsive overrides must come last.
