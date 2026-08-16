@@ -59,3 +59,4 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 ## Starting a new process note
 
 - [[Template - Process Note]] — the shape a new process note takes.
+- [[Generated music for a news podcast needs a rhythm section]] — why generated themes read as classical, and which briefs Lyria actually honours.
