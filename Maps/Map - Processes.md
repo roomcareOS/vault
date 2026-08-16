@@ -16,6 +16,8 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 
 ## YFarmX
 
+- [[Screenshotting external sites from a Claude session (YFarmX)]] — the egress resets browser TLS; a loopback bridge terminates Chromium locally and re-originates via undici with verification on. Includes the list of bot-protected sites that cannot be captured.
+
 - [[Article Pipeline (YFarmX)]] — the five-step human-in-the-loop publishing loop; draft delivered in chat, never improvised.
 - [[Social Syndication (YFarmX)]] — X and LinkedIn fire together per article from queue files; TikTok is manual. Running the queues and switching a channel on live here too.
 - [[Social Platforms (YFarmX)]] — the wider map: dormant broadcast mirrors, feed syndication, and the standing decision never to automate Reddit.
