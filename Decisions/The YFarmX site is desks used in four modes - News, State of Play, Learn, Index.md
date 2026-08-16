@@ -12,7 +12,7 @@ each used in the same four modes: **News** (what changed), **State of Play**
 (where things stand), **Learn** (how it works) and **Index** (what exactly
 everything is). One reader promise: read → understand → track → explore.
 Implemented 16 Aug 2026 on branch `claude/yfarmx-site-reorganization-zwxfge`
-(awaiting Jay's review at the time of writing); repo decision 59 carries the
+(awaiting Jay's review at the time of writing); repo decision 61 carries the
 full change list.
 
 **The rules a future session must not undo:**
