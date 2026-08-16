@@ -153,6 +153,38 @@ liftoff so the outcome is readable the next morning. Anything forward-looking �
 gone as the next one up. Found live on `/space` on 16 August; the same defect had
 been showing since QZS-7 flew on the 11th.
 
+## The IA redesign, phase one (16 Aug 2026)
+
+Jay commissioned a full UX/IA review of `/space` and had it implemented the
+same day. The principle: the sixteen desks are four different kinds of thing —
+things to track, things to explore, ways of understanding the industry, and
+editorial formats — and the site should teach that one hierarchy everywhere.
+
+What is now structural, and where it lives:
+
+- **`SPACE_GROUPS` in `src/lib/space-sections.ts`** is the taxonomy: Track
+  (Launches, Missions) / Explore (Satellites, Orbit, Moon, Mars, Science,
+  Robotics) / Intelligence (Business, Security, Defence, Policy) / Read (News,
+  Analysis, Opinion) / Tools (Data, About). Header, full menu and footer all
+  render it; never hand-write a section list again.
+- **Canonical records:** every mission owns `/space/missions/<slug>/` and every
+  launch `/space/launches/<slug>/`, generated from the two data files. Desks
+  and the hub show summaries pointing at the record. `missionRecordHref` is the
+  only way to link a mission record.
+- **One status system in `src/lib/space-status.ts`:** a passed window without a
+  verified outcome reads "awaiting verified outcome" everywhere, and every
+  forward-looking count comes from `pendingLaunches()`. Never compute launch
+  state ad hoc in a page again.
+- **The dashboard lives on `/space/data/`,** not Analysis. Analysis is long
+  reads. The weekly re-verification duty follows the dashboard to Data (the
+  registry `docs/time-sensitive.md` records this).
+
+Deliberately not done, awaiting Jay: moving article URLs under `/space/`
+(breaks the URL-preservation rule — his call, not a redesign side effect);
+entity chips and related-records in the shared article shell (touches every
+world's articles); company/vehicle profiles, watchlists, filters, the global
+type-scale change (needs his eye on staging first).
+
 ## Count launches, do not read them (16 Aug 2026)
 
 The Analysis desk's cadence table was built by asking a model to read Wikipedia's
