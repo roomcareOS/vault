@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx docs/podcast.md, docs/podcast-cast.md, flags.mjs; Jay's launch call 6 Aug, page-redesign instruction 7 Aug, casting and canon rules 8 Aug, format review answers 15 Aug 2026
-updated: 2026-08-15
+updated: 2026-08-16
 ---
 
 # Podcast - YFarmX Briefings
@@ -73,7 +73,17 @@ Also: Lyria occasionally returns a candidate with no content at all. It is trans
 
 **Still open from the round**: Jay's pick of one music preset plus one ident voice (Charon, Schedar, Orus and Algieba auditioned alongside Aoede; the three non-cast voices read as a distinct announcer rather than a character introducing the show), and his approval of the regenerated 3000x3000 cover. The sample episode in the new format is blocked only on `OPENROUTER_API_KEY` reaching the session environment, since `make-podcast.py` writes its scripts through OpenRouter.
 
-**Provider note, unresolved:** the intro runs on Google, which contradicts the 14 August record that Google had been dropped estate-wide in favour of OpenRouter. Jay's instruction was "google tts use". An Inbox card asks him whether that reversal is permanent and how far it reaches.
+**Provider note, RESOLVED (Jay, 16 Aug):** *"The Google was just for the intro... we're gonna stick with OpenRouter."* Google's key exists for `make-intro.py` (Lyria music + the ident) and nothing else; scripts, episode TTS and the read stay on OpenRouter. Key rotation deliberately deferred: both chat-pasted keys carry a $5 spend cap and no loaded balance.
+
+## The 16 August listening round: approved, and three more rules
+
+Jay heard the first format-v2 episode, called the faults, and after the fixes **approved the three re-cut 14 August episodes** (Anthropic IPO, unmonitored agent, Quantinuum Helios) — they are the reference cuts, live on the feed as `-v2` files under unchanged GUIDs. The full rulebook lives in `docs/podcast-cast.md`; the three additions worth carrying:
+
+1. **Voices at least four semitones apart.** Measured F0: Sally 212 Hz, Alice 185, Melissa 180, Bob 141, Jim 103. Alice and Melissa are 0.46 semitones apart, the pair the rejected sample cast. Enforced in code; every legal three-hander is Bob + Jim + one woman, so the optional third seat is always the absent male.
+2. **The opening is three beats** (reversing 9 Aug's no-names-at-top): what happened, dated, in stranger-proof words; the hook as a fact, never a tease; one line of "I'm going through it with Jim". Then the story.
+3. **Followable by ear, first time**: one spine, at most six spoken figures, never two in a sentence, jargon explained in the same breath, the first twenty seconds landing on someone who knows nothing.
+
+**Gates that all fired on real scripts the same day**: banned words checked BEFORE rendering (refused em dashes, "matter", "quietly"); a script must end on the published-date line or the render refuses (a truncated script once rendered and the outro made it sound finished); the writer call retries on null replies with an 8,000-token budget.
 
 ## The music goes at the END (Jay, 16 August 2026)
 
