@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/space/RECON.md, yfarmx/docs/space/MODELS.md, yfarmx/docs/space/BUDGET.md, yfarmx/docs/space/IMAGE-PROMPTS.md, yfarmx/docs/space/IMAGE-PROMPTS-26.md, yfarmx/docs/space/HUB-COMPLETION.md, yfarmx/docs/space/OUT_OF_SCOPE.md
-updated: 2026-08-08
+updated: 2026-08-16
 ---
 
 # Space Hub Build (YFarmX)
@@ -112,6 +112,46 @@ computed against it is silently a month change); and the quote field
 fresh session timestamp (QBTS, 8 Aug 2026: quote $16.21, chart series $20.76,
 Nasdaq $20.76). Price from the daily close series; trust the quote field only
 while it agrees with the series.
+
+## Verifying launches: read SpaceX's own CMS, not its website (16 Aug 2026)
+
+`www.spacex.com` serves an Angular shell — plain `curl` returns about 3KB of
+`<app-root></app-root>` and nothing else. The 14 August pass concluded from this
+that the manifest needs a rendered browser, and wrote that into the data file.
+**It does not.** The shell is fed by SpaceX's own CMS, which answers plain HTTP
+with no key, no browser and no Playwright:
+
+| Endpoint (on `https://content.spacex.com/`) | What it gives |
+|---|---|
+| `api/spacex-website/launches-page-tiles` | every launch ever: date, launch time, pad, vehicle, mission status, return site |
+| `api/spacex-website/launches-page-tiles/upcoming` | the forward manifest (often undated) |
+| `api/spacex-website/missions/<slug>` | the post-flight prose, booster flight history and full launch/landing timeline |
+| `api/spacex-website/falcon-nine-stats` | all-time Falcon 9 launches, landings, reflights |
+
+The endpoint list is discoverable at any time by grepping the site's `main.*.js`
+bundle for `api/spacex-website`. Two things to know when using it:
+
+- **`launchTime` is Eastern, whatever coast the rocket left from.** A Vandenberg
+  launch reads `21:50` for a 6:50 p.m. Pacific liftoff. Convert deliberately;
+  the mission page's own prose states the correct local zone and is the check.
+- **The tiles repeat.** The same launch appears as a homepage tile and a launches
+  tile. Dedupe on `link|launchDate` before counting anything. Done that way the
+  feed is an authoritative launch count — better sourced for the Analysis desk's
+  cadence table than the Wikipedia tables it was built from.
+
+**The date trap that comes with this.** Both 16 August Falcon 9 flights lifted off
+after midnight UTC and every American source files them as *15 August*. The launch
+board publishes UTC, and UK readers read UTC. Check which day a launch falls on in
+*our* reckoning before writing it up — the previous pass pasted the manifest's
+Eastern clock time straight into a UTC field and put USSF-366 four hours out, on
+the wrong day.
+
+**A flown launch is not a window.** Records stay on the board for 24 hours after
+liftoff so the outcome is readable the next morning. Anything forward-looking —
+"next window", "windows tracked", "in the next 30 days" — must filter
+`launched` and `failed` out first, or the hub advertises a rocket that has already
+gone as the next one up. Found live on `/space` on 16 August; the same defect had
+been showing since QZS-7 flew on the 11th.
 
 ## Traps the 7 August adversarial review caught (worth remembering)
 
