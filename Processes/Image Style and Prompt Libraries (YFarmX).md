@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/image-style.md, yfarmx/docs/brand-marketing-prompts.md, yfarmx/docs/playbook.md
-updated: 2026-08-08
+updated: 2026-08-16
 ---
 
 # Image Style and Prompt Libraries (YFarmX)
@@ -15,6 +15,7 @@ A **dense, layered magazine-collage in a cyber-dossier style** — a high-end in
 - **Bright, never dark or moody:** off-white halftone newsprint background, torn-paper edges, red/blue/green registration squares in the corners.
 - **High-contrast black-and-white photography with colour as a spotlight** — the subject's real brand colours plus the desk accent. No neon, no rainbow.
 - **The big headline names what the article is ABOUT** (a cover names its subject); the sharp secondary fact goes elsewhere in the scene.
+- **One typeface everywhere, since 16 Aug 2026: SQUARE MONOSPACED EXTRABOLD** — JetBrains Mono's register, so the art matches the site's own data type. Every image, every desk, heroes and infographics alike. Headlines get shorter in it (mono is wide: two words, three at the outside). Full clause and traps: [[Every generated image sets its text in square monospaced extrabold]].
 - **Desk accents:** AI blue, Crypto green, Quantum purple, Security red. Red is not the default.
 - **Always the real logos** (Jay's hard rule: never write "no logos" into a prompt) — and every logo eyeballed against the company's official site before shipping, because generators invent marks. Known traps recorded: Anthropic's mark is the wordmark plus "AI" monogram, the orange sunburst is Claude's.
 - **BANNED since 30 July 2026: dark rounded HUD/data panels and red rubber stamps.** Both were house furniture and both are barred (the panels made every image identical; the stamps did a headline's job). Figures go into the scene instead: a torn spec sheet, a paper chart, a machine plate, an evidence tag. *Note: the template and worked example still inside docs/image-style.md pre-date this ban; the ban wins.*
