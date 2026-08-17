@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/playbook.md, yfarmx/docs/publishing-plan.md
-updated: 2026-08-06
+updated: 2026-08-17
 ---
 
 # Article Pipeline (YFarmX)
@@ -17,6 +17,8 @@ How an article actually gets onto [[YFarmX]] today, distilled from the newsroom 
 5. **Publish:** flip `draft: false`, push to **staging**, Jay checks the rendered page at staging.yfarmx.pages.dev, then the Promote workflow ships it live ([[Staging and Backups (YFarmX)]]). Only after promotion do the social waves fire ([[Social Syndication (YFarmX)]]).
 
 "Article" always means the complete package: text, hero, figures, audio, social. Jay should never have to ask for any of it.
+
+**The body itself carries media (Jay, 17 Aug 2026, decision 65): one compact animation and at least two screenshots or images breaking up the text.** Primary-source screenshots first — the notice, the filing, the product screen, captured ourselves (the 15 August crypto batch carried six; the DeepSeek Harness page nine). The animation is a short silent loop sized like a figure, not a video player. Unbroken text is an incomplete article: the two 17 August pieces shipped without any and prompted the rule.
 
 ## Two publishing doors, one mechanism
 
