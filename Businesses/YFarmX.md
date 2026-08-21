@@ -19,7 +19,7 @@ updated: 2026-08-07
 
 ## Editorial position
 
-Accuracy is the product. Primary and official sources only (regulators, filings, the company's own announcements), never rival tech outlets. Minimum two independent sources per news claim, no invented quotes, sources listed on every article, British English throughout. The full working rules live in [[Claude Operating Profile - YFarmX]] and the day-to-day loop in [[Article Pipeline (YFarmX)]].
+Accuracy is the product. Primary and official sources only (regulators, filings, the company's own announcements), never rival tech outlets — and never space trade press (SpaceNews, Payload, Spaceflight Now and their like; Jay, 21 Aug 2026): read them for leads, cite the provider, agency or filing. Minimum two independent sources per news claim, no invented quotes, sources listed on every article, British English throughout. The full working rules live in [[Claude Operating Profile - YFarmX]] and the day-to-day loop in [[Article Pipeline (YFarmX)]].
 
 ## History in three beats
 
