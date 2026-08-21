@@ -16,6 +16,7 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 
 ## YFarmX
 
+- [[Sourcing photographs from Wikimedia Commons (YFarmX)]] — the API-with-User-Agent search, licence gate (CC0/PD/CC BY only, named in the credit chip), and the 1920px-thumb-with-Referer download that survives the rate limiter. First used for the Falcon 9 reuse project, 21 Aug 2026.
 - [[Screenshotting external sites from a Claude session (YFarmX)]] — the egress resets browser TLS; a loopback bridge terminates Chromium locally and re-originates via undici with verification on. Includes the list of bot-protected sites that cannot be captured.
 - [[Cutout objects from Nano Banana 2 via chroma key (YFarmX)]] — photoreal transparent-background props generated in-session: prompt for flat 00FF00, key on green dominance, despill, and border-connected keying for genuinely green objects. First used for the Index hero objects, 17 Aug 2026.
 
