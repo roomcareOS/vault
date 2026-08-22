@@ -74,3 +74,43 @@ candidate explanations, controls (positive / negative / consistency) gate
 publication and render live on `/ai/models/methodology/`, history is
 append-only. All enforced in `build-identity.mjs`; a model's own declared tag
 never votes on the verdict about itself.
+
+## Round three, 22 August 2026: the external review, and the layout law
+
+Jay commissioned an outside adversarial review of the whole product and said
+"do all these". What it changed, and the transferable lessons:
+
+- **A confidence badge must carry its reason.** The pipeline now emits
+  `confidence_reason` per model, in plain words, from the exact rule that
+  fired. Never hand-write these on pages: the reason IS the rule.
+- **The default comparison must explain the attribution.** `comparator` picks
+  the model's own group's canonical reference (declared-tag match, then lab
+  prefix, then exact-cluster peer, newest first). The oddest neighbour stays
+  in the nearest-models list, never as the headline CTA.
+- **Evidence ids become pages.** Every tk_/api_ id on a record links to
+  /ai/models/fingerprints/<id>/. Dead codes read as decoration; addressable
+  objects read as evidence.
+- **Groups sharing a family name get deterministic letters** ("Qwen · group
+  A", size order), plus one honest footnote: the letters are ours, the
+  evidence does not name the generations.
+- **Static pair pages make comparisons citeable.** A query-string comparison
+  needs scripts; /ai/models/compare/<a>/vs/<b>/ renders the verdict
+  server-side for every canonical pair. Crawlers, unfurlers and no-JS readers
+  see the conclusion.
+- **The mobile layout law (decision 83):** any single-column grid whose track
+  is not minmax(0, 1fr) will one day be widened by an unbreakable child, and
+  every section on the page widens with it. Audit with scrollWidth vs
+  clientWidth at 320/360/390/412 in Playwright; fix the track, give grid
+  children min-width: 0, wrap long mono strings with overflow-wrap: anywhere,
+  and never ship a table a phone must pan.
+- **Slug changes on a capped platform:** public/_redirects stops applying
+  rules past ~101, and a Pages Function in front of a live tree is a new
+  failure point. Old URLs render as static stubs instead: same record, a
+  canonical to the new address, location.replace, kept out of the sitemap.
+- **verify-model-identity.mjs** now fails the build when the data files
+  disagree with each other or the controls fail. Counts a page renders and
+  counts the dataset holds can never drift apart silently again.
+
+Deferred with reasons, not dropped: generated per-record OG cards (house font
+not shipped in-repo; Jay must see a sample before 422 cards exist) and a
+formal data licence (his call; the data page says quote-with-attribution).
