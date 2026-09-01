@@ -34,6 +34,7 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 - [[Staging and Backups (YFarmX)]] — staging branch Jay reviews before anything reaches live, plus daily backups.
 - [[Ops Runbooks (YFarmX)]] — SEO go-live, email anti-spoofing DNS, page-freshness registry: the account-level clicks only Jay can do.
 - [[Pipeline Security Rules (YFarmX)]] — where the real risk sits: secrets on steps not jobs, `permissions:` on every workflow, a lost `git push` that quietly double-posts, why `_headers` never reaches a Function, and localStorage as an input.
+- [[Edge Security Lives at the Cloudflare Zone (YFarmX)]] — the half of the site's defence that is not in the repo, why two CSP headers intersect rather than merge, and why `pages.dev` gets none of it.
 - [[Robotics Launch Checklist (YFarmX)]] — what launching a site vertical actually needs, learned by shipping one.
 - [[Space Hub Build (YFarmX)]] — the flag-gated Space section, and the disciplined agent-project method worth copying.
 - [[App and Store Distribution (YFarmX)]] — the site is the app: the PWA layer, the Google Play route (organisation account, TWA, keep the signing key), Apple parked for phase 2.

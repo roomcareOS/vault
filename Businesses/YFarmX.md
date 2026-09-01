@@ -35,6 +35,13 @@ Accuracy is the product. Primary and official sources only (regulators, filings,
 - Hosting: Cloudflare Pages, free tier, domain registration stays at GoDaddy, DNS at Cloudflare
 - Key dates on the plan: EU AI transparency rules from 2 Aug 2026 (documented human review keeps the site inside the editorial exemption); cheap scanning models retire ~Oct 2026 (config swap)
 
+## Status snapshot (1 September 2026, Cloudflare hardening)
+
+- **Half of the site's security moved to the Cloudflare zone**, where the repository cannot see it: managed WAF, a rate limit on `POST /api/*`, an enforced Content-Security-Policy on every HTML page, edge HSTS, minimum TLS 1.2, DNSSEC signing and DMARC at `p=quarantine`. See [[Edge Security Lives at the Cloudflare Zone (YFarmX)]].
+- **The new zone CSP shipped with an incomplete `connect-src` and broke four live things**: `/verify/tectonic/`, `/tools/gas-fee-checker/`, the arcade bitcoin game, and the Web3Forms notification on every form. Proved in a browser against the live policy. The origin list it needed already existed in `public/_headers`. On the board as a p1.
+- **`yfarmx.pages.dev` was serving an unprotected copy** of the whole site, outside every zone rule. Closed with `functions/_middleware.js`, which redirects the bare production host and deliberately leaves staging and preview hosts alone.
+- Still with Jay: account 2FA, rolling the deploy token, the DNSSEC DS record at GoDaddy, and DKIM for Microsoft 365.
+
 ## Status snapshot (7 August 2026, from docs/status.md)
 
 - **YFarmX Space is LAUNCHED** (evening of 7 Aug, Jay's voice instruction, superseding his 6 Aug hold): `SPACE_PUBLIC=true`, the hub and sixteen desks in sitemap/feeds/nav/search, a sister-title band on the homepage, the two worlds one tap apart via the masthead switcher. Same session: the hardware-bay drag fixed three ways, both space data files re-verified against primary sources (four mission corrections applied), six shared desk banners replaced with their own art, Chakra Petch as the Space display face. See [[Space Hub Build (YFarmX)]].
