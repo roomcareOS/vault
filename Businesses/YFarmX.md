@@ -35,6 +35,12 @@ Accuracy is the product. Primary and official sources only (regulators, filings,
 - Hosting: Cloudflare Pages, free tier, domain registration stays at GoDaddy, DNS at Cloudflare
 - Key dates on the plan: EU AI transparency rules from 2 Aug 2026 (documented human review keeps the site inside the editorial exemption); cheap scanning models retire ~Oct 2026 (config swap)
 
+## Status snapshot (2 September 2026, a deploy that deleted live pages)
+
+- **Eighteen live article pages were deleted by the 1 September deploy**, which ran from a feature branch ten commits behind `main` and unaware of a second branch carrying seven more articles. A Pages deploy is a full snapshot, not a patch. Restored 2 September: one tree, 585 articles, live sitemap back from 1,546 URLs to 1,566.
+- **The edge cache disguised it for a day.** Deleted pages kept answering 200 when clicked while the homepage, `/news/` and RSS had already dropped them, so it presented as a sorting bug. See [[A Deploy Replaces the Whole Site (YFarmX)]] for the ten-second test that finds it.
+- **`npm run predeploy-check` now blocks the repeat**: it reads the live sitemap and refuses any build missing a URL the site currently serves.
+
 ## Status snapshot (1 September 2026, Cloudflare hardening)
 
 - **Half of the site's security moved to the Cloudflare zone**, where the repository cannot see it: managed WAF, a rate limit on `POST /api/*`, an enforced Content-Security-Policy on every HTML page, edge HSTS, minimum TLS 1.2, DNSSEC signing and DMARC at `p=quarantine`. See [[Edge Security Lives at the Cloudflare Zone (YFarmX)]].
