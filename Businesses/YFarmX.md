@@ -40,6 +40,8 @@ Accuracy is the product. Primary and official sources only (regulators, filings,
 - **Eighteen live article pages were deleted by the 1 September deploy**, which ran from a feature branch ten commits behind `main` and unaware of a second branch carrying seven more articles. A Pages deploy is a full snapshot, not a patch. Restored 2 September: one tree, 585 articles, live sitemap back from 1,546 URLs to 1,566.
 - **The edge cache disguised it for a day.** Deleted pages kept answering 200 when clicked while the homepage, `/news/` and RSS had already dropped them, so it presented as a sorting bug. See [[A Deploy Replaces the Whole Site (YFarmX)]] for the ten-second test that finds it.
 - **`npm run predeploy-check` now blocks the repeat**: it reads the live sitemap and refuses any build missing a URL the site currently serves.
+- **Hand deploys are two scripts now**, `scripts/deploy-live.sh` (runs the check first) and `scripts/deploy-staging.sh` (adds the password gate, noindex and crawl block CI used to add). Staging had been left answering 200 to anyone by a bare wrangler call.
+- **The Space hub was reworked for navigation and clarity** on Jay's ask the same day and is on staging for his review: a sticky section index, a real heading on every section, one grid of desks in place of a cut-off rail and a duplicate trio.
 
 ## Status snapshot (1 September 2026, Cloudflare hardening)
 

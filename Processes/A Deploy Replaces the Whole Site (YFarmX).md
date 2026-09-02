@@ -38,6 +38,17 @@ Two design points worth keeping if it is ever rewritten:
 
 Prove any such gate in **both** directions before trusting it. The first control run here was a false pass: the page removed from `dist` was one of the deleted ones, so it was not in the live sitemap either and nothing tripped. Re-run the control with a page you have confirmed is in the live sitemap.
 
+## The two scripts
+
+Since 2 September 2026 a hand deploy is one of two repo scripts, never a bare wrangler call, because the bare call skips everything the dead workflows used to do:
+
+- `scripts/deploy-live.sh` runs `predeploy-check` and then deploys `dist` to the production branch.
+- `scripts/deploy-staging.sh` reproduces `deploy-staging.yml`: the gate's own tests, then a throwaway directory holding a copy of `dist` with `X-Robots-Tag: noindex` appended, a Disallow-all `robots.txt`, no sitemaps, and `functions/_middleware.js` set to the password gate, deployed to the `staging` branch. The repo is never modified and the live site's own `functions/` (the pages.dev redirect) is never what staging gets.
+
+The staging one exists because staging was found answering **200 to anyone**, serving the live `robots.txt`, with no gate: a hand deploy had shipped `dist` alone. Test a gated staging by its status code, `curl -sI` and expect 401; a 200 means the gate is not there.
+
+Both scripts take the token from the environment (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`) and never from a file.
+
 ## The standing rule
 
 **Merge to `main` first, build from `main`, deploy `main`.** With Actions dead the deploy is manual, which is exactly why the branch discipline has to be.
