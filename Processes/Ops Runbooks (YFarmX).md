@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/seo-go-live-checklist.md, yfarmx/docs/email-dns-setup.md, yfarmx/docs/time-sensitive.md
-updated: 2026-08-06
+updated: 2026-08-16
 ---
 
 # Ops Runbooks (YFarmX)

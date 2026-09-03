@@ -1,14 +1,14 @@
 ---
 tags: [business, yfarmx]
 source: yfarmx/CLAUDE.md, yfarmx/README.md, yfarmx/docs/master-plan.md, yfarmx/docs/status.md, yfarmx/docs/audit.md, yfarmx/docs/pivot-salvage.md
-updated: 2026-08-07
+updated: 2026-09-03
 ---
 
 # YFarmX
 
 **What it is:** an automated frontier-technology newsroom at **yfarmx.com**, covering AI, crypto/blockchain and quantum computing. Run by Jay (John Kamal) as YFarmX Ltd, solo, directing AI builds from a Chromebook and phone. The aim: the most readable, accessible frontier-tech news site on the web.
 
-**The model in one line:** *the repo is the newsroom.* A static site built with Astro (a static site generator: the site is plain files, no database, no CMS to log into) hosted on Cloudflare Pages. Every article is a Markdown text file committed to git; publishing is a git push; deploys are automatic. If it is not committed, it does not exist.
+**The model in one line:** *the repo is the newsroom.* A static site built with Astro (a static site generator: the site is plain files, no database, no CMS to log into) hosted on Cloudflare Pages. Every article is a Markdown text file committed to git; publishing is a git push. If it is not committed, it does not exist. **Deploys were automatic and are not, since 28 August 2026:** every GitHub Actions run fails at startup, so a push ships nothing and a human runs `scripts/deploy-live.sh` by hand. See [[A Deploy Replaces the Whole Site (YFarmX)]].
 
 ## Targets
 
@@ -35,13 +35,19 @@ Accuracy is the product. Primary and official sources only (regulators, filings,
 - Hosting: Cloudflare Pages, free tier, domain registration stays at GoDaddy, DNS at Cloudflare
 - Key dates on the plan: EU AI transparency rules from 2 Aug 2026 (documented human review keeps the site inside the editorial exemption); cheap scanning models retire ~Oct 2026 (config swap)
 
+## Status snapshot (3 September 2026, the deploy branch inversion)
+
+- **`origin/main` had drifted 140 commits and nine live articles behind the branch production actually deployed from**, and held none of the deploy scripts, the pre-deploy gate or the `pages.dev` middleware. The rule "merge to main, build from main, deploy main" had silently inverted while three documents still stated it. Fixed by fast-forwarding `main` and `staging`; the one-line check is in [[A Deploy Replaces the Whole Site (YFarmX)]].
+- **One social run could bill unboundedly.** The og:image wait was 10 minutes PER ENTRY with no run-level ceiling, so five stuck entries cost fifty minutes and only the job timeout stopped it. That is the shape that exhausted the Actions account in August. A run now shares one 10-minute budget.
+- **Actions is a billing block, not an empty allowance:** every run has failed at startup since 28 August, including after the 1 September monthly reset.
+
 ## Status snapshot (2 September 2026, a deploy that deleted live pages)
 
 - **Eighteen live article pages were deleted by the 1 September deploy**, which ran from a feature branch ten commits behind `main` and unaware of a second branch carrying seven more articles. A Pages deploy is a full snapshot, not a patch. Restored 2 September: one tree, 585 articles, live sitemap back from 1,546 URLs to 1,566.
 - **The edge cache disguised it for a day.** Deleted pages kept answering 200 when clicked while the homepage, `/news/` and RSS had already dropped them, so it presented as a sorting bug. See [[A Deploy Replaces the Whole Site (YFarmX)]] for the ten-second test that finds it.
 - **`npm run predeploy-check` now blocks the repeat**: it reads the live sitemap and refuses any build missing a URL the site currently serves.
 - **Hand deploys are two scripts now**, `scripts/deploy-live.sh` (runs the check first) and `scripts/deploy-staging.sh` (adds the password gate, noindex and crawl block CI used to add). Staging had been left answering 200 to anyone by a bare wrangler call.
-- **The Space hub was reworked for navigation and clarity** on Jay's ask the same day and is on staging for his review: a sticky section index, a real heading on every section, one grid of desks in place of a cut-off rail and a duplicate trio.
+- **The Space hub was reworked for navigation and clarity** on Jay's ask the same day and went LIVE on his word at 16:45 UTC: a sticky section index, a real heading on every section, one grid of desks in place of a cut-off rail and a duplicate trio.
 
 ## Status snapshot (1 September 2026, Cloudflare hardening)
 
@@ -57,7 +63,7 @@ Accuracy is the product. Primary and official sources only (regulators, filings,
 
 ## Status snapshot (5 August 2026, from docs/status.md)
 
-- **Staging and daily backups are LIVE** (decision 38). Every change, articles included, goes to a private staging site for Jay's review before promotion to live. See [[Staging and Backups (YFarmX)]]. **Outstanding: Jay's one dashboard toggle** (Cloudflare Pages "Access policy") — until it is on, staging is unindexable but not truly private.
+- **Staging and daily backups are LIVE** (decision 38). Every change, articles included, goes to a private staging site for Jay's review before promotion to live. See [[Staging and Backups (YFarmX)]]. **Settled since (decision 39):** Cloudflare Pages offered no "Access policy" toggle, so staging is private behind a PASSWORD GATE instead (`scripts/staging-gate.mjs`, Pages PREVIEW secret `STAGING_PASSWORD`, 401 with a form, 503 if unset).
 - **Audio is parked, not finished.** Jay's call: move to an OpenRouter voice going forward; the Gemini TTS work stops where it is. Next session should evaluate OpenRouter's speech offering.
 - Three articles published and socialised on 5 Aug (AISI agent-behaviour, OpenRouter Ori, SpaceX/NVIDIA Starmind). Starmind is the Space desk's first live news article.
 - Robotics vertical launched 30 July ([[Robotics Launch Checklist (YFarmX)]]); glossary at 3,050 terms across three desks; all Security Desk trackers redesigned and theme-aware.

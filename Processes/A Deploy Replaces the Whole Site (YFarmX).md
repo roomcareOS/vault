@@ -1,12 +1,12 @@
 ---
 tags: [process, yfarmx, deploys]
 source: the 1 September 2026 deploy that deleted eighteen live pages, and the 2 September restoration
-updated: 2026-09-02
+updated: 2026-09-03
 ---
 
 # A Deploy Replaces the Whole Site (YFarmX)
 
-A Cloudflare Pages deploy is **a full snapshot, not a patch**. Whatever is in `dist` becomes the entire site, and every page absent from it is deleted. [[YFarmX]] deploys by hand (`wrangler pages deploy dist --project-name yfarmx --branch main`) because Actions has been dead since 28 August 2026, and hand deploys are where this bites.
+A Cloudflare Pages deploy is **a full snapshot, not a patch**. Whatever is in `dist` becomes the entire site, and every page absent from it is deleted. [[YFarmX]] deploys by hand because Actions has been dead since 28 August 2026, and hand deploys are where this bites. **The hand deploy is `scripts/deploy-live.sh`, never a bare `wrangler pages deploy`** — see "The two scripts" below. A bare wrangler call is the thing that caused every incident on this page.
 
 On 1 September a session deployed `dist` built from its own feature branch. That branch was ten commits behind `main` and knew nothing about a second branch where another session had written seven articles. **Eighteen live article pages were deleted.** The build was clean and reported success, because it built exactly what its branch contained.
 
@@ -49,9 +49,21 @@ The staging one exists because staging was found answering **200 to anyone**, se
 
 Both scripts take the token from the environment (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`) and never from a file.
 
-## The standing rule
+## The standing rule, and the way it silently stopped being true
 
 **Merge to `main` first, build from `main`, deploy `main`.** With Actions dead the deploy is manual, which is exactly why the branch discipline has to be.
+
+**On 3 September 2026 that rule was found to have inverted, and nobody noticed for two days.** Production had been deploying from a *feature* branch, `claude/kronos-hack-blockchain-2fdp3n`. `origin/main` had drifted **140 commits and nine live articles behind it**, and held none of `scripts/predeploy-check.mjs`, `scripts/deploy-live.sh`, `scripts/deploy-staging.sh` or `functions/_middleware.js`. So the branch everything was supposed to build from was the one branch that would have deleted nine live pages and every guard — the 1 September incident, still armed, pointing the other way. Fixed by fast-forwarding `main` and `staging` up to the deploying branch.
+
+The lesson is not "merge more often". It is that **a rule written in a document does not enforce itself**, and this one had quietly reversed while three documents still stated it. So check it rather than trusting it. One line, before any deploy:
+
+```
+git rev-list --left-right --count origin/main...HEAD
+```
+
+`0  0` means main is level and the rule holds. Anything on the right means main is behind what you are about to deploy, and a build from main would delete pages. Anything on the **left** is worse: main holds work your build does not, and deploying would delete that.
+
+A related trap found the same day: local `main` was *tracking `origin/staging`*. Harmless only because both refs happened to sit on the same commit; a bare `git push` from local main would have pushed to the wrong ref. `git branch -vv` shows what each local branch really tracks.
 
 More than one session writes articles at once, so before deploying, check for unmerged article work on other branches:
 
