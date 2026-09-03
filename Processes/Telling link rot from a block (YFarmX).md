@@ -27,6 +27,38 @@ origin, ideally its homepage plus a page you are certain exists.
 
 Same symptom, opposite conclusion, and only the control test separates them.
 
+## Two refinements, both learned the hard way the same afternoon
+
+**A 403 is never rot.** It is a refusal to serve, not a statement that the page
+is absent, so it says nothing about whether the URL is good. An automated check
+that treats "403 here, 200 at the host root" as rot will flag arbitrum.io,
+openai.com, upbit.com and arbiscan.io, all of which are fine for a real reader.
+Only a **404 or 410** is a candidate, and only then with the control test.
+
+**A blocking host answers inconsistently, so sample more than once.**
+defillama.com returned, across three runs inside an hour: 403 on everything;
+then 200 at the root with 404 on a protocol page; then 403 on everything again,
+including its own homepage and `/protocol/aave`, which certainly exists. Its
+404 was one of its refusal modes, not a missing page. If a host's control
+answers move between runs, treat every result from it as unusable and change
+nothing.
+
+## Finding where a page moved to, without a search budget
+
+The site's own sitemap is the cheapest route and needs no search calls:
+
+    curl -s https://<host>/robots.txt | grep -i sitemap
+    curl -s https://<host>/sitemap_index.xml          # then the relevant child
+    curl -s https://<host>/sitemap-blog.xml | grep -oiE 'https://[^<]*<keyword>[^<]*'
+
+That is how the dead Zoom citation was repaired rather than deleted: the
+post-quantum E2EE post had moved from `/en/blog/post-quantum-e2ee/` to
+`/en/blog/guide-to-post-quantum-end-to-end-encryption/`, and `sitemap-blog.xml`
+gave the new URL in one request. Wayback is blocked by egress policy here, so
+the sitemap is the tool to reach for. Check the recovered page really carries
+the claim: this one is dated 24 May 2024 and names Kyber 768, which is the
+pre-standardisation name for ML-KEM-768.
+
 ## Known-blocked, not rotten
 
 Seen refusing a session while being perfectly alive for real readers:
