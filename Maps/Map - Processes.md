@@ -16,6 +16,8 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 
 ## YFarmX
 
+- [[Source visuals must add information (YFarmX)]] — useful source captures, phone readability, attribution and animation captions.
+
 - [[Sourcing photographs from Wikimedia Commons (YFarmX)]] — the API-with-User-Agent search, licence gate (CC0/PD/CC BY only, named in the credit chip), and the 1920px-thumb-with-Referer download that survives the rate limiter. First used for the Falcon 9 reuse project, 21 Aug 2026.
 - [[Screenshotting external sites from a Claude session (YFarmX)]] — the egress resets browser TLS; a loopback bridge terminates Chromium locally and re-originates via undici with verification on. Includes the list of bot-protected sites that cannot be captured.
 - [[Telling link rot from a block (YFarmX)]] — a non-200 from a session is not evidence a link is dead: always test a second URL on the same host. zoom.com serves 200 elsewhere so its 404 was real rot; defillama.com 403s on its own homepage so an earlier 404 proved nothing. Carries the routes that still work (api.llama.fi, X syndication) and the rule never to swap rot for a citation that does not support the claim.
