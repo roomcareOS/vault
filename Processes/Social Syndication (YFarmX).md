@@ -65,6 +65,20 @@ A platform stays dormant until its secrets exist; missing credentials leave that
 - **X:** at developer.x.com set the app's permissions to **Read and Write**, *then* **regenerate** the access token and secret. Regenerating before the permission change is why posting 403s. Add `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET`. The poster trims whitespace on these, so a stray newline from a mobile paste will not break authentication.
 - **Buffer (which is how LinkedIn posts):** `BUFFER_API` is a Buffer *personal* API key, from Settings → API → Personal Keys, and it must have both **`accountRead`** and **`postsWrite`** ticked — a missing `accountRead` gives `FORBIDDEN`, a stale or rotated key gives `401 UNAUTHENTICATED`. The free plan allows **one key at a time**, so delete the old one before making a new one. Pin the YFarmX.com page's Buffer channel id on every queue entry (the value is already in `data/buffer-queue.json`); posting then needs only `postsWrite` and never touches the channels query. `DRY=1 node scripts/buffer-post.mjs` lists the channels without posting. Buffer is a LinkedIn-approved partner, so no LinkedIn developer review is needed, and it works on the free plan.
 - **The LinkedIn image card is not automatic.** Give the entry a `link` object (url, title, description, image) and the poster attaches it as a Buffer link asset, so LinkedIn renders the rich preview with the hero. Text alone posts as a plain update with **no image** — and when there is a `link`, keep the raw URL out of the text, because the card already carries it.
+- **The card image must be a COMMITTED file.** The og `.jpg` is generated into `dist/` at build time and is not in the repo, so an entry pointing at it is held with "no committed file for ...". Use the committed `.webp`, which is what every previous entry uses.
+
+## The two posters take different dry-run flags (18 September 2026)
+
+| Script | Posts to | Dry-run flag |
+| --- | --- | --- |
+| `scripts/post-social.mjs` | X | `--dry-run` |
+| `scripts/buffer-post.mjs` | LinkedIn, via Buffer | `--dry` **or** `DRY=1` |
+
+`buffer-post.mjs` tests `process.argv.includes('--dry')`, so **`--dry-run` does not match it and the run posts for real while looking like a rehearsal** — it prints the per-channel checks, sends, then says "Buffer queue updated". Both posters were called with `--dry-run` on the assumption the flags matched: X correctly did nothing, and the LinkedIn entry went out.
+
+The tells that it sent rather than rehearsed: the output reads `✓ linkedin: post <id>`, and the queue entry flips to `"status": "posted"` with a `postedAt`. `post-social.mjs` by contrast prints "DRY RUN, nothing will be sent" and means it.
+
+`scripts/buffer-status.mjs` cannot confirm delivery from a session — the token answers `FORBIDDEN` on the channels query — so confirm on the LinkedIn page itself.
 
 Everywhere else a YFarmX article could go — the Telegram, Discord, Bluesky and Mastodon mirrors already built into the poster, the feed-syndication applications, and the deliberate decision never to automate Reddit — is [[Social Platforms (YFarmX)]].
 

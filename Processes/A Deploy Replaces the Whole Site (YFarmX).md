@@ -36,6 +36,8 @@ Two design points worth keeping if it is ever rewritten:
 - **It fails, rather than passes, when the live site cannot be reached.** A gate that waves builds through whenever the network is down is worse than no gate, because it gets trusted.
 - **Deliberate removals are named:** `--allow-drop=/old-page/`. Unpublishing stays possible, but as a decision rather than an accident.
 
+**`--allow-drop` lasts exactly one deploy (18 September 2026).** It is the exception that gets a single deploy past this gate; it does not keep the page gone, and the build keeps emitting it. A page held back that way was found sitting in `dist` with a sitemap entry the same evening, one deploy away from republishing itself. **When Jay holds a page, set a flag:** [[Holding a Page Off Live (YFarmX)]].
+
 Prove any such gate in **both** directions before trusting it. The first control run here was a false pass: the page removed from `dist` was one of the deleted ones, so it was not in the live sitemap either and nothing tripped. Re-run the control with a page you have confirmed is in the live sitemap.
 
 ## The two scripts
@@ -87,6 +89,8 @@ Drafts are not losses. A `draft: true` article never had a live page, so its 404
 
 ## Related
 
+- [[Holding a Page Off Live (YFarmX)]] — why `--allow-drop` is not a holdback
+- [[Overwriting a Stale Pages Asset (YFarmX)]] — when the `?cb=` check says the origin is right and the edge still disagrees
 - [[Edge Security Lives at the Cloudflare Zone (YFarmX)]] — the other half of what the repo cannot see
 - [[Staging and Backups (YFarmX)]] — the review flow the hand deploys bypass
 - [[Pipeline Security Rules (YFarmX)]]
