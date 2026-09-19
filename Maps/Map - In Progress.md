@@ -13,7 +13,6 @@ This section exists because that work kept going missing. The vault was first bu
 
 ## YFarmX
 
-- [[Agent connector surface awaiting Jay (YFarmX)]] — the Muse-era agent API is on protected staging on claude/nice-clarke-yhwhqm; blocked on Jay's review, then live, then the announcement.
 
 - [[TikTok 60-Video Plan (YFarmX)]] — 30 days, two posts a day, six series, a full brief per video. Blocked on Jay approving the plan, approving the voice, and the empty Google AI Studio credits.
   *Branch: `claude/wifi-max-tiktok-plan-wzkahd`*

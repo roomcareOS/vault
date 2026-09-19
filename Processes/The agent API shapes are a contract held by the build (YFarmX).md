@@ -18,4 +18,4 @@ YFarmX serves a public, read-only JSON layer for AI agents (Meta Muse, Claude, C
 - **Every payload opens with the provenance envelope** (product, version, generatedAt, source, license, licenseUrl, attribution, citeAs). The tracker downloads keep CC BY 4.0; everything newer carries quote-with-attribution terms.
 - `/openapi.yaml` serves through an exact-name valve in `functions/_probe-guard.js` (yaml is otherwise a blocked extension). Widen that valve only by exact basename, knowingly.
 
-Business: [[YFarmX]]. The launch state sits in [[Agent connector surface awaiting Jay (YFarmX)]] until Jay promotes it.
+Business: [[YFarmX]]. Live on yfarmx.com since 19 September 2026 (deployment 6808c818), with Jay's ten-image art pack wired into /agents/ and /connectors/.
