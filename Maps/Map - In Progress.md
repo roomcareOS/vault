@@ -1,6 +1,6 @@
 ---
 tags: [map, cross]
-updated: 2026-08-07
+updated: 2026-09-19
 ---
 
 # Map - In Progress
@@ -12,6 +12,8 @@ This section exists because that work kept going missing. The vault was first bu
 **The rule for this folder:** when a branch merges or is closed, its note either moves to [[Map - Processes]] (it is now how things are done) or is deleted (the work was abandoned). Nothing should sit here forever. Live task state belongs in Todoist, not here — see [[Todoist Doctrine]].
 
 ## YFarmX
+
+- [[Agent connector surface awaiting Jay (YFarmX)]] — the Muse-era agent API is on protected staging on claude/nice-clarke-yhwhqm; blocked on Jay's review, then live, then the announcement.
 
 - [[TikTok 60-Video Plan (YFarmX)]] — 30 days, two posts a day, six series, a full brief per video. Blocked on Jay approving the plan, approving the voice, and the empty Google AI Studio credits.
   *Branch: `claude/wifi-max-tiktok-plan-wzkahd`*

@@ -1,6 +1,6 @@
 ---
 tags: [map, cross]
-updated: 2026-09-03
+updated: 2026-09-19
 ---
 
 # Map - Processes
@@ -16,6 +16,7 @@ Every repeatable process in the estate, grouped by business. Cross-estate patter
 
 ## YFarmX
 
+- [[The agent API shapes are a contract held by the build (YFarmX)]] — /data/v1/, /openapi.yaml and the connector brief: shapes change by addition only, and a build gate enforces it.
 - [[Source visuals must add information (YFarmX)]] — useful source captures, phone readability, attribution and animation captions.
 
 - [[Sourcing photographs from Wikimedia Commons (YFarmX)]] — the API-with-User-Agent search, licence gate (CC0/PD/CC BY only, named in the credit chip), and the 1920px-thumb-with-Referer download that survives the rate limiter. First used for the Falcon 9 reuse project, 21 Aug 2026.
