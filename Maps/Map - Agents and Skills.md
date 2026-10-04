@@ -1,6 +1,6 @@
 ---
 tags: [map, cross]
-updated: 2026-08-06
+updated: 2026-10-04
 ---
 
 # Map - Agents and Skills
@@ -23,6 +23,7 @@ How Jay's AI agents are directed, the skills they carry, and the reference shelf
 
 ## Skills
 
+- [[Skill - Fund tracing (YFarmX)]] — every blockchain trace loads the saved Zcash and cross-chain methods, with separate grades for the route and actor attribution.
 - [[Skill - TikTok Cut Visual Bar (YFarmX)]] — the official Remotion Agent Skills vendored into the repo, bound to house rules by a house skill; five-point visual bar every vertical cut must clear.
 - [[Skill - Verify (Intervooh)]] — build, launch and drive the app end-to-end in a real browser before calling a change done.
 - [[Teaching Approach (MyHomework)]] — the coach never does the homework; pedagogy as enforced behaviour, backed by [[Research - MyHomework]].
