@@ -1,10 +1,12 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/playbook.md, yfarmx/docs/publishing-plan.md
-updated: 2026-08-17
+updated: 2026-10-06
 ---
 
 # Article Pipeline (YFarmX)
+
+**Reference audio scope, 6 October 2026:** Sub-hub and reference pages use text and images by default. Read-aloud audio and podcasts are produced for news articles; create them for a reference page only when Jay explicitly asks. For the four model guides whose audio was already made, Jay chose to keep it and place both players at the start of the body, below the opening summary. Keep existing media URLs and recordings unchanged. The authoritative rule is in `yfarmx/CLAUDE.md`, `docs/playbook.md`, `docs/audio.md` and `docs/podcast-cast.md`.
 
 How an article actually gets onto [[YFarmX]] today, distilled from the newsroom playbook. Golden rule: **the repo is the newsroom** — every article is a Markdown file, every deploy a git push, no CMS.
 

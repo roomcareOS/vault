@@ -1,10 +1,12 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/audio.md, yfarmx/docs/video.md; Jay's 15 Aug 2026 format round
-updated: 2026-08-15
+updated: 2026-10-06
 ---
 
 # Audio and Voice Production (YFarmX)
+
+**Reference audio scope, 6 October 2026:** Sub-hub and reference pages use text and images by default. Read-aloud audio and podcasts are produced for news articles; create them for a reference page only when Jay explicitly asks. For the four model guides whose audio was already made, Jay chose to keep it and place both players at the start of the body, below the opening summary. Keep existing media URLs and recordings unchanged. The authoritative rule is in `yfarmx/CLAUDE.md`, `docs/playbook.md`, `docs/audio.md` and `docs/podcast-cast.md`.
 
 Every [[YFarmX]] article gets a spoken version, in **one fixed voice**. An article is not finished until it has audio, and nobody asks Jay whether he wants it ([[Article Pipeline (YFarmX)]] step 4 — apply his edits *first*, so the MP3 reads the approved words).
 
