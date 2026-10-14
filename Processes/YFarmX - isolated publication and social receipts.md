@@ -20,6 +20,11 @@ Use an isolated own checkout. Fetch current main and read claims before writes. 
 
 Run the official deployment script with the exact approved publish paths and the own deployment claim. Verify the live origin and sharing cards twice across their settle window. Release the deployment claim as soon as verified source integration reaches main; future social schedules do not need to hold deployment access.
 
+
+### Preserved cards keep their matching container
+
+A More News card belongs in the More News grid, and a Latest card belongs in the Latest grid. On 14 October, restoring every omitted older card into the Latest grid put a More News card into a single desktop grid column and squeezed its headline. Preserve the original matching parent container; fail composition when that container is absent or a grid contains the wrong card class. Compare visible card widths at phone, tablet and desktop sizes, including the user's theme. Byte preservation alone cannot establish that a moved element still has a usable layout.
+
 ## Integrate safely on Windows
 
 Another session's Windows-invalid private filenames must remain unchanged. Use audited `merge-tree` and `commit-tree` integration without checking those files out. An alternative index can preserve the complete current tree while appending only own records and status entries. Merge own audio-manifest keys and cast-memory lines into the fresh branch values. Verify complete deltas, ancestry and divergence; push without force. Never rename, remove or normalise another session's private paths, switch the unrelated root checkout, or import unrelated staging drafts into a live release.
