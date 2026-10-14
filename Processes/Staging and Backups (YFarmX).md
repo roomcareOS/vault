@@ -1,12 +1,20 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/staging-and-backups.md, yfarmx/docs/status.md, yfarmx/docs/decisions.md
-updated: 2026-08-06
+updated: 2026-10-14
 ---
 
 # Staging and Backups (YFarmX)
 
 Two safety systems on [[YFarmX]], live since 5 August 2026 (decision 38). Jay's two asks: a staging site only he can see, with the push to live checked against what he actually reviewed; and daily backups he can revert to.
+
+## Current scoped publishing workflow (14 October 2026)
+
+This section supersedes the August GitHub Actions promotion instructions below. Live and staging deploys use the official repository deployment scripts and their safety checks. Codex can deploy when Jay explicitly authorises it in the current chat. Claim only the own areas and the deployment window; never release another session's claim.
+
+Cloudflare publishes a full snapshot. Preserve the exact current production manifest, overlay only the approved pages and their necessary listing/feed additions, and verify every other production file is byte-for-byte retained. A homepage freshness stamp must come from an actual current-source build. Verify the origin and settled sharing cards, then integrate the own source into fresh main and release the deployment claim immediately. Copy only the own package and appended status entry to fresh staging, preserving concurrent work.
+
+See [[YFarmX - isolated publication and social receipts]] for Windows tree integration and private social receipts. The backup descriptions below are historical and require fresh verification before relying on their schedules.
 
 ## Staging: how a change reaches the live site
 

@@ -8,6 +8,14 @@ updated: 2026-08-14
 
 How a published [[YFarmX]] article reaches X, LinkedIn and TikTok. Everything for X and LinkedIn is a queue file in the repo; a GitHub Action (an automated job that runs on a schedule or on changes) posts whatever is due. TikTok is manual.
 
+## Current publication workflow (14 October 2026)
+
+This section supersedes the August scheduling and GitHub Actions instructions below. Follow the current repository playbook and the interval Jay requests in the active chat. A pair means X and LinkedIn share a due time; the stagger separates articles. The October 14 batch uses 32 minutes between pairs.
+
+Use a task-private queue with pinned, previously verified YFarmX channels. Confirm live article bytes and the actual JPEG sharing image, then pass the official twice-settled card check before submitting. Record each accepted Buffer ID immediately. Acceptance means scheduled, not published: verify the saved IDs until every post has both `sentAt` and `externalLink`. Never resend an accepted post because its scheduled time is still in the future. A requested follow-up stays silent while unchanged and is removed after verified completion. Preserve other sessions' queues and due times.
+
+See [[YFarmX - isolated publication and social receipts]] for source and record integration.
+
 ## Timing (Jay's rule, final)
 
 The moment an article is live and verified, it posts. **X and LinkedIn always fire together for the same article; the 5-minute stagger is between articles, never between platforms.** Three articles at 14:00 = six posts: both channels at 14:00, 14:05, 14:10. No waiting for a cron, no scheduling hours ahead.
