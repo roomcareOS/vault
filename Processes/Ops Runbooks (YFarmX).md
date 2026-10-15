@@ -1,7 +1,7 @@
 ---
 tags: [process, yfarmx]
 source: yfarmx/docs/seo-go-live-checklist.md, yfarmx/docs/email-dns-setup.md, yfarmx/docs/time-sensitive.md
-updated: 2026-08-16
+updated: 2026-10-15
 ---
 
 # Ops Runbooks (YFarmX)
@@ -65,6 +65,18 @@ one:**
   prove a Function works; only the deployed URL can.
 - **Changing a Pages environment variable needs a redeploy** before Functions
   see it.
+
+### Freshness release lessons, 15 October 2026
+
+- Inventory all non-article references, but distinguish changed pages, verified unchanged claims and blocked source responses. A successful URL request is not a factual recheck. Keep historical benchmark and observation dates.
+- Use the same dated market snapshot in reference copy, cards and state-of-play data. Separate release dates, disclosure dates and patch dates. Treat a retirement date qualified as “as early as” as an earliest possible date.
+- Bounty feed totals must use public programmes only. Preserve the last successful source date when a platform fetch fails. A new incident or vulnerability row does not make the entire historical register freshly verified.
+- New references also affect their parent hubs, latest-release lists, search, model feeds, public API guides and catalogue counts. Run cross-page consistency checks after composing the release.
+- When disk is tight, immutable verified images/audio can be hard-linked into an isolated build, with final hash checks. A postprocessor must not overwrite a linked baseline asset. Keep the live snapshot until preservation and origin proof finish.
+- Pagefind output can retain obsolete files between builds. Decode the active metadata dependency lists; preserve the complete previous live index and the new index, and remove only unreachable older index files. Count the whole deployment tree against the hosting limit before upload.
+- The media release gate can take several minutes without intermediate output. Wait for its result; lack of output alone does not establish a stalled deployment. Preserve the deployment lock through the upload and full sharing-card proof.
+
+These are operating lessons from `docs/research/reference-refresh-2026-10-15/` in the site repository. Earlier account-level SEO and email entries above retain their original historical status and need an account check before being treated as current.
 
 ## Links
 
