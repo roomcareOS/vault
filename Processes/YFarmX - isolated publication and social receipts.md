@@ -1,6 +1,6 @@
 ---
 tags: [process, yfarmx]
-updated: 2026-10-14
+updated: 2026-10-15
 source: yfarmx/AGENTS.md, yfarmx/CLAUDE.md, yfarmx/docs/playbook.md
 ---
 
@@ -26,6 +26,14 @@ Run the official deployment script with the exact approved publish paths and the
 A More News card belongs in the More News grid, and a Latest card belongs in the Latest grid. On 14 October, restoring every omitted older card into the Latest grid put a More News card into a single desktop grid column and squeezed its headline. Preserve the original matching parent container; fail composition when that container is absent or a grid contains the wrong card class. Compare visible card widths at phone, tablet and desktop sizes, including the user's theme. Byte preservation alone cannot establish that a moved element still has a usable layout.
 
 Jay changed More News to nine cards on 14 October 2026: three complete desktop rows of three, selected newest first after excluding stories already shown above. Check the exact nine-card count after composition; restoring every omitted older card can exceed the requested count. Preserved card headings must also use the matching More News heading class and component style scope. Set the actual `yfx-theme` preference and assert the rendered theme when checking both modes.
+
+## Preserve image URLs when the live snapshot reaches its file limit
+
+Check the publisher's actual account capacity before taking the deployment window. Remove only new assets that the release dependency graph does not reference. If the canonical snapshot itself is full, the minimum required byte-identical raster copies can share one retained asset through exact same-origin 200 rewrites. Verify every original URL's status, MIME and exact bytes through local Pages and again on the live origin. Save the original bytes and the alias map privately. Preserve every article and unique asset.
+
+Place the new exact rules before the existing wildcard rules while preserving the existing rules' order. Cloudflare counts rules after a wildcard towards its dynamic-rule limit, so appending exact aliases at the bottom can cause valid later rules to be ignored. Confirm the publisher parses the complete redirect file. The larger source-media migration remains separate work.
+
+Use the existing media-check request headers for automated image verification. The media origin blocks Node's default user agent on image paths. On this machine, automated Chrome can also receive an opaque blocked response; a local rendering check may relay the real media-origin response, preserving its bytes, MIME, range and CORS headers. Record that transport explicitly and retain the independent public-origin byte check.
 
 ## Integrate safely on Windows
 
