@@ -84,6 +84,12 @@ Jay wants the homepage to feature significant frontier models or standout releas
 
 The homepage's More news section contains six articles. Its duplicate exclusions must use the same filtered release pool as Latest. Verify all category filters and the default layout at desktop and phone widths after changing the selection. A model refresh does not by itself authorise changing this homepage policy.
 
+### Reusing responsive images safely, 15 October 2026
+
+An image source can appear as a large hero and a small sidebar thumbnail on the same page. Reuse its candidate files, but derive `sizes` separately from each fresh component occurrence. Never cache `sizes` by source URL: the homepage's OpenAI engineer card inherited a roughly 74px sidebar size and selected an 80px image for a much larger card. Use `scripts/lib/reuse-editorial-variants.mjs` for scoped reuse; retain the natural dimensions needed by Latest's measured cover sizing.
+
+Browser image checks must decode the selected response and compare its pixel width with the rendered cover requirement at normal and high pixel density. A successful load and a non-zero natural width do not establish sharpness. Include narrow phones: a tall crop can need more source pixels than the image element's width. Configure the local/R2 output mode before importing modules that capture that setting.
+
 ## Links
 
 [[YFarmX]] · [[Map - Processes]] · [[Article Pipeline (YFarmX)]] · [[Staging and Backups (YFarmX)]] · [[Decisions - YFarmX]]
