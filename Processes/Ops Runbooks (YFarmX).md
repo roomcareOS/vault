@@ -78,6 +78,12 @@ one:**
 
 These are operating lessons from `docs/research/reference-refresh-2026-10-15/` in the site repository. Earlier account-level SEO and email entries above retain their original historical status and need an account check before being treated as current.
 
+### Homepage model selection, 15 October 2026
+
+Jay wants the homepage to feature significant frontier models or standout releases, rather than automatically promoting every specialist model page. Use the explicit editorial selection in `src/lib/homepage-releases.ts` for both Latest and Release watch. Review the reader interest before adding a model; vendor identity alone is not a selection rule. The full model catalogue and Newswire keep their broader coverage.
+
+The homepage's More news section contains six articles. Its duplicate exclusions must use the same filtered release pool as Latest. Verify all category filters and the default layout at desktop and phone widths after changing the selection. A model refresh does not by itself authorise changing this homepage policy.
+
 ## Links
 
 [[YFarmX]] · [[Map - Processes]] · [[Article Pipeline (YFarmX)]] · [[Staging and Backups (YFarmX)]] · [[Decisions - YFarmX]]
