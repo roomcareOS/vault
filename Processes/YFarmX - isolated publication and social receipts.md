@@ -1,6 +1,6 @@
 ---
 tags: [process, yfarmx]
-updated: 2026-10-15
+updated: 2026-10-16
 source: yfarmx/AGENTS.md, yfarmx/CLAUDE.md, yfarmx/docs/playbook.md
 ---
 
@@ -20,6 +20,8 @@ Use an isolated own checkout. Fetch current main and read claims before writes. 
 
 Run the official deployment script with the exact approved publish paths and the own deployment claim. Verify the live origin and sharing cards twice across their settle window. Release the deployment claim as soon as verified source integration reaches main; future social schedules do not need to hold deployment access.
 
+Check comparison tables in the rendered DOM. On 16 October the article's Markdown table appeared as literal pipes under the active Astro configuration; an explicit HTML table, followed by the existing table wrapper, rendered correctly with mobile field labels. A successful build alone did not detect that defect. Scroll lazy figures into view before checking their loaded state, and verify both audio modes through actual playback.
+
 
 ### Preserved cards keep their matching container
 
@@ -30,6 +32,8 @@ Jay changed More News to nine cards on 14 October 2026: three complete desktop r
 ## Preserve image URLs when the live snapshot reaches its file limit
 
 Check the publisher's actual account capacity before taking the deployment window. Remove only new assets that the release dependency graph does not reference. If the canonical snapshot itself is full, the minimum required byte-identical raster copies can share one retained asset through exact same-origin 200 rewrites. Verify every original URL's status, MIME and exact bytes through local Pages and again on the live origin. Save the original bytes and the alias map privately. Preserve every article and unique asset.
+
+Prefer immutable media-origin URLs for the new article's media when authorised and verified; the Tesla release needed only one new static article file. Preserve existing aliases. If a newly emitted service-worker registration runtime differs solely in its build token and the canonical service worker is unchanged, compare the complete normalised runtime bodies before reusing the canonical runtime. Never reuse it when its executable behaviour differs. This kept the release within capacity without changing another session's assets or aliases.
 
 Place the new exact rules before the existing wildcard rules while preserving the existing rules' order. Cloudflare counts rules after a wildcard towards its dynamic-rule limit, so appending exact aliases at the bottom can cause valid later rules to be ignored. Confirm the publisher parses the complete redirect file. The larger source-media migration remains separate work.
 
