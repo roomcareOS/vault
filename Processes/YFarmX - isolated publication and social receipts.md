@@ -1,6 +1,6 @@
 ---
 tags: [process, yfarmx]
-updated: 2026-10-16
+updated: 2026-10-17
 source: yfarmx/AGENTS.md, yfarmx/CLAUDE.md, yfarmx/docs/playbook.md
 ---
 
@@ -13,6 +13,12 @@ Use the current repository rules and Jay's authorisation in the active chat. The
 Research primary sources, open every citation, run article preflight and an independent adversarial review, and complete the required lint and public-output checks. News articles have the house article read and fixed-cast podcast; reference sub hubs normally have neither. Use the current image typography rule: clean square bold mono on heroes and heavy clean proportional sans on infographics. Generate raster artwork with the requested Codex image tool.
 
 Before paid audio synthesis, check that the local encoder and decoder dependencies load and the exact existing house podcast outro is available. Never substitute a voice, accent, cast or outro to solve a runtime failure. Upload finished MP3s at immutable media-origin URLs, verify exact served bytes and full decoding, then wire both modes into the top article player. On the podcast listing, check the player URL as well as the feed enclosure: a local source MP3 can make the build choose a local URL even when the release keeps audio on the media origin.
+
+## Use genuine logos and compose the whole cover
+
+Jay, 17 October 2026: remove fabricated YFarmX logos. Omit publisher branding by default; when a publisher logo is used, use the actual existing asset, very small in a corner. Removing a large logo requires recomposing the title and scene so the cover stays balanced, rather than leaving an empty strip. When Jay requests member or partner logos, obtain the genuine assets from official sites or officially linked brand kits, retain the original shapes and colours, and verify every identity. Save source URLs and hashes privately. A labelled reference sheet helps the image tool preserve multiple brands. Use an actual rendered house-font reference when verbal instructions keep producing clipped, octagonal hero lettering.
+
+Read the current podcast-cast ending before synthesis: the 16 August fixed sign-off supersedes the older follow request. Give each speaker's name, the farewell and final publication-date sentence; the produced ident supplies the show name. Avoid complementary repeated figures in the same sentence. If a corrected audio version has already reached its immutable URL, upload the correction at a new versioned key and update the player, listing, feed and own manifest together.
 
 ## Preserve the exact current live snapshot
 
