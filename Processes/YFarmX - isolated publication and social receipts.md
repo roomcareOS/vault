@@ -22,6 +22,8 @@ Read the current podcast-cast ending before synthesis: the 16 August fixed sign-
 
 ## Preserve the exact current live snapshot
 
+A Pages deployment can return an empty `deployment_trigger.metadata.commit_hash` (observed on the 17 October release). Save a private deployment-ID-to-verified-build-commit record. Establish it from the actual build, unchanged tracked public source and complete deployed-manifest comparison. A later snapshot may use that exact record for source controls after verifying them; never substitute the latest main commit merely because provider metadata is blank.
+
 Use an isolated own checkout. Fetch current main and read claims before writes. Snapshot the current canonical production deployment, its complete file map and its controls. Verify reused local bytes against that map before composing. Build only the approved pages and necessary derived lists, then retain canonical navigation, unrelated widgets, older card copy and old feed/search entries. Add only the own items to sitemap, feeds and search index. A complete hash audit must show that all unrelated live files are retained.
 
 Run the official deployment script with the exact approved publish paths and the own deployment claim. Verify the live origin and sharing cards twice across their settle window. Release the deployment claim as soon as verified source integration reaches main; future social schedules do not need to hold deployment access.
