@@ -34,6 +34,8 @@ For an isolated CSS release, restore the exact canonical worker dependency graph
 
 Run the official deployment script with the exact approved publish paths and the own deployment claim. Verify the live origin and sharing cards twice across their settle window. Release the deployment claim as soon as verified source integration reaches main; future social schedules do not need to hold deployment access.
 
+Inspect the actual candidate `og:image` and `twitter:image` before entering the expensive release gates, including on layout-only releases. On 17 October the category hubs already carried WebP preview URLs, so the final card gate rejected an otherwise verified spacing release. Probe the existing JPEG twins and correct the two matching preview fields only on the approved pages before deployment; keep the visible WebP heroes unchanged. This avoids discovering a pre-existing card-format problem after upload.
+
 Check comparison tables in the rendered DOM. On 16 October the article's Markdown table appeared as literal pipes under the active Astro configuration; an explicit HTML table, followed by the existing table wrapper, rendered correctly with mobile field labels. A successful build alone did not detect that defect. Scroll lazy figures into view before checking their loaded state, and verify both audio modes through actual playback.
 
 
